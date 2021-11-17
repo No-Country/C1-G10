@@ -1,8 +1,7 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const getPromos = createAction("GET_PROMOS");
-
-export const getAllTours = createAsyncThunk(getPromos, async () => {
+/* GET ALL PREDEFINED TOURS */
+export const getAllTours = createAsyncThunk("GET_PROMOS", async () => {
   const response = await fetch(
     "https://my.api.mockaroo.com/tourSchema.json?key=1f82ed90"
   );

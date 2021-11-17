@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PromoSchema = new Schema({
+const PackageSchema = new Schema({
   promoName: String,
   images: [
     {
@@ -9,6 +9,7 @@ const PromoSchema = new Schema({
       description: String,
     },
   ],
+  likeID: [],
   currency: String,
   totalCost: Number,
   //travelInfo are keys/categories for the search tab.
@@ -21,4 +22,4 @@ const PromoSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Promo", PromoSchema);
+module.exports = mongoose.model("Package", PackageSchema);

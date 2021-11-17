@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tourSlice from "../features/tourSlice";
+import rootReducer from "./reducers/rootReducer";
 
 export const store = configureStore({
-  reducer: {
-    tours: tourSlice,
-  },
+  reducer: rootReducer,
 });
 
 export default store;

@@ -1,4 +1,4 @@
-import styles from "../styles/tours-information/ToursFilter.module.scss";
+import styles from "../../styles/tours-information/ToursFilter.module.scss";
 
 export const TourFilter = () => {
   return (

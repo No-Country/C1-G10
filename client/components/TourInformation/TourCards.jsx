@@ -1,12 +1,12 @@
 import Image from "next/image";
-import styles from "../styles/tours-information/TourCards.module.scss";
+import styles from "../../styles/tours-information/TourCards.module.scss";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTours } from "../features/tourSlice";
+import { getAllTours } from "../../store/actions/toursActions";
 
 export const TourCard = () => {
   const dispatch = useDispatch();
-  const { tours } = useSelector((state) => state.tours);
+  const [promos] = useSelector((state) => state.promos);
 
   useEffect(() => {
     dispatch(getAllTours());
@@ -14,8 +14,8 @@ export const TourCard = () => {
 
   return (
     <div className={styles["cards-container"]}>
-      {tours &&
-        tours.map((card, index) => {
+      {promos &&
+        promos.map((card, index) => {
           const { name, type, days, pricePerDay, image } = card;
           return (
             <div key={index} className={styles.cards}>

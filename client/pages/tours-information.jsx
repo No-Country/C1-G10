@@ -1,5 +1,5 @@
 import { TourCard } from "../components/TourInformation/TourCards";
-import { TourFilter } from "../components/TourInformation/TourFilter";
+import { FilterContainer } from "../components/TourInformation/FilterContainer";
 import styles from "../styles/tours-information/ToursInformation.module.scss";
 import Image from "next/image";
 
@@ -20,7 +20,7 @@ export default function Tours() {
       </div>
       <div className={styles.container}>
         <div>
-          <TourFilter />
+          <FilterContainer />
         </div>
         <div className={styles.card}>
           <TourCard />

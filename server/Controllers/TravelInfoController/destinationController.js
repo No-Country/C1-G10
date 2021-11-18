@@ -1,0 +1,1 @@
+const Destination = require('../../Models/TravelInfo/Destination')

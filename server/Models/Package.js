@@ -5,7 +5,7 @@ const PackageSchema = new Schema({
   packageName: String,
   images: [
     {
-      url: imageUrl.Location,
+      //url: String,
       description: String,
     },
   ],

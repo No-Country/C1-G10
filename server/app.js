@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-const user = require("./Routes/user");
+const routes = require("./Routes/index");
 
 /* MONGODB CONNECTION */
 const mongoose = require("mongoose");
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/user", user);
+app.use(routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

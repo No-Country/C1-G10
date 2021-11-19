@@ -12,11 +12,13 @@ exports.newPackage = [
 
       const package = new Package({
         packageName,
-        images: {
-          //url: imageUrl.Location,
-          description,
-        },
-        rating,
+        /* images: [
+          {
+            //url: imageUrl.Location,
+            description,
+          },
+        ], */
+        //rating,
         currency,
         totalCost,
       });
@@ -28,3 +30,27 @@ exports.newPackage = [
     }
   },
 ];
+
+/* GET ALL PACKAGES */
+
+exports.getAllPackages = async (req, res, next) => {
+  try {
+    const package = await Package.find({});
+    return res.json(package);
+  } catch (err) {
+    return res.json(next(err));
+  }
+};
+
+/* DELETE A PACKAGE */
+
+exports.deleteAPackage = async (req, res, next) => {
+  try {
+    console.log("aloha");
+    const package = await Package.findOneAndDelete(req.params.id);
+    console.log(package);
+    res.json(package);
+  } catch (err) {
+    res.json(next(err));
+  }
+};

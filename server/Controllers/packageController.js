@@ -54,3 +54,25 @@ exports.deleteAPackage = async (req, res, next) => {
     res.json(next(err));
   }
 };
+
+/* UPDATE PACKAGE NAME */
+exports.updatePackage = async (req, res, next) => {
+  const { packageName, currency, totalCost } = req.body;
+
+  try {
+    const package = await Package.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          packageName,
+          currency,
+          totalCost,
+        },
+      },
+      { new: true }
+    );
+    res.json(package);
+  } catch (err) {
+    res.json(next(err));
+  }
+};

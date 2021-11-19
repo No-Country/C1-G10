@@ -1,5 +1,5 @@
 const { body, validationResult } = require("express-validator");
-const Package = require("../Models/Package");
+const Package = require("../../Models/Package");
 
 exports.validateNewPackage = [
   body("packageName")

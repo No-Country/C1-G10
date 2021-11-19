@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const packageController = require("../../Controllers/packageController");
 const multer = require("multer");
-const newPackageValidation = require("../../Validation/newPackageValidation");
+const newPackageValidation = require("../../Validation/PackageValidations/newPackageValidation");
 
 /* const storage = multer.diskStorage({
   filename: (req, file, cb) => {

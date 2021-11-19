@@ -1,5 +1,5 @@
-import { TourCard } from "../components/TourInformation/TourCards";
-import { FilterContainer } from "../components/TourInformation/FilterContainer";
+import { TourCard } from "../components/Tours/TourCards";
+import { FilterContainer } from "../components/Tours/FilterContainer";
 import styles from "../styles/tours-information/ToursInformation.module.scss";
 import Image from "next/image";
 

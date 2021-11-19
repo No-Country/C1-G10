@@ -6,7 +6,7 @@ import { getAllTours } from "../../store/actions/toursActions";
 
 export const TourCard = () => {
   const dispatch = useDispatch();
-  const [promos] = useSelector((state) => state.promos);
+  const [packages] = useSelector((state) => state.packages);
 
   useEffect(() => {
     dispatch(getAllTours());
@@ -14,9 +14,9 @@ export const TourCard = () => {
 
   return (
     <div className={styles["cards-container"]}>
-      {promos &&
-        promos.map((card, index) => {
-          const { name, type, days, pricePerDay, image } = card;
+      {packages &&
+        packages.map((card, index) => {
+          const { destination, type, days, pricePerDay, image } = card;
           return (
             <div key={index} className={styles.cards}>
               <Image
@@ -28,7 +28,7 @@ export const TourCard = () => {
               />
               <div className={styles["card-info"]}>
                 <p>{type}</p>
-                <h3>{name}</h3>
+                <h3>{destination}</h3>
                 <div className={styles["info-container"]}>
                   <p>days {days}</p>
                   <p>From US$ {pricePerDay * days}</p>

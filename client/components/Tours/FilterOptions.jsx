@@ -1,4 +1,4 @@
-import styles from "../../styles/tours-information/ToursFilter.module.scss";
+import styles from "../../styles/tours/FilterOptions.module.scss";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -49,7 +49,7 @@ export const FilterOptions = ({ filterBy }) => {
       {filtered &&
         filtered.map((elem, index) => {
           return (
-            <div key={index}>
+            <div key={index} className={styles.container}>
               <p>{elem}</p>
             </div>
           );

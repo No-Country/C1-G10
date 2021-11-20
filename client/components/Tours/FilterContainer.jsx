@@ -1,6 +1,9 @@
-import styles from "../../styles/tours-information/ToursFilter.module.scss";
-import { useState, useEffect } from "react";
+import styles from "../../styles/tours/ToursFilter.module.scss";
+import { useState } from "react";
 import { FilterOptions } from "./FilterOptions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 export const FilterContainer = () => {
   const [isExpanded, setIsExpanded] = useState();
@@ -19,14 +22,20 @@ export const FilterContainer = () => {
       <hr />
       {filters.map((filter, index) => {
         return (
-          <div>
+          <div key={index}>
             <div
               className={styles.filters}
               id={index}
               onClick={() => toggleDropdown(index)}
             >
               <h4>{filter} </h4>
-              <i>{isExpanded == index + 1 ? "up" : "down"}</i>
+              <i>
+                {isExpanded == index + 1 ? (
+                  <FontAwesomeIcon icon={faChevronUp} />
+                ) : (
+                  <FontAwesomeIcon icon={faChevronDown} />
+                )}
+              </i>
             </div>
             {isExpanded === index + 1 ? (
               <FilterOptions filterBy={filter} />

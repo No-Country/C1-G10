@@ -1,7 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/home.module.css";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Seccion1 from "../components/Seccion1";
+import Seccion2 from "../components/Seccion2"; 
+import Seccion3 from "../components/Seccion3";
 
 
 export default function Home() {
@@ -15,9 +19,21 @@ export default function Home() {
       </Head>
  
    <Navbar/>
+   <Header/>
+   <hr></hr>
+   <Seccion1/>
+   <Seccion2/>
+   <Seccion3/>
+
+
+
     
+ 
+  
+       
+   
     
-     
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
      
     </div>
   );

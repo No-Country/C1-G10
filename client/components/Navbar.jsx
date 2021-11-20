@@ -1,8 +1,12 @@
+
+
+
 const Navbar=()=>(
     <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              
 <div className="container-fluid">
-  <a className="navbar-brand" href="#"><img src='https://cdn-icons-png.flaticon.com/512/744/744502.png' alt='logo viaje' width='auto' height='40' />&nbsp;&nbsp;Turistic Life</a>
+  <a className="navbar-brand" href="index"><img src='https://cdn-icons-png.flaticon.com/512/744/744502.png' alt='logo viaje' width='auto' height='40' />&nbsp;&nbsp;Turistic Life</a>
   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -15,7 +19,7 @@ const Navbar=()=>(
         <a className="nav-link active" aria-current="page" href="#">Travel style</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">About us</a>
+        <a className="nav-link active" aria-current="page" href="/aboutus">About us</a>
       </li>
       <li className="nav-item">
         <a className="nav-link active" aria-current="page" href="#">Contact us</a>

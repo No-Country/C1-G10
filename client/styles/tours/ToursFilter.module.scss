@@ -28,22 +28,26 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
   .container {
     width: 30rem;
+    h2 {
+      font-size: 3rem;
+      padding-top: 1rem;
+    }
   }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 960px) {
   .container {
     width: 23rem;
 
     h2 {
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     h4 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     .filters {
@@ -52,9 +56,9 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 750px) {
   .container {
-    width: 15rem;
+    width: 14rem;
 
     h2 {
       font-size: 1.5rem;
@@ -62,6 +66,42 @@
 
     h4 {
       font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 10rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      font-size: 0.8rem;
+    }
+
+    i {
+      font-size: 0.5rem;
+    }
+
+    .filters {
+      padding: 0 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 7rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    h4 {
+      font-size: 0.6rem;
     }
   }
 }

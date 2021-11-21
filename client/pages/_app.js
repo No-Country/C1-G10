@@ -6,12 +6,16 @@ import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 
 config.autoAddCss = false;
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Component {...pageProps} />
+   
     </Provider>
+    
+    
   );
-}
+} 
 
 export default MyApp;

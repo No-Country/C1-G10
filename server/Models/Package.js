@@ -12,14 +12,8 @@ const PackageSchema = new Schema({
   rating: [],
   currency: String,
   totalCost: Number,
-  //travelInfo are keys/categories for the search tab.
-  /* travelInfo: {
-    destination: String, //Country, city, etc...
-    type: String, //Type of travel. Familiar, adventure, honeymoon, etc...
-    costsType: String, //Standard, Expensive, Luxury, etc..
-    travelDuration: String,
-    spots: Number,
-  }, */
+  remainingSpots: String,
+  totalDays: Number,
 });
 
 module.exports = mongoose.model("Package", PackageSchema);

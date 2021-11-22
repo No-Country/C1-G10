@@ -2,34 +2,41 @@ const Package = require("../Models/Package");
 
 /* CREATE NEW PACKAGE */
 
-exports.newPackage = [
-  async (req, res, next) => {
-    try {
-      const { packageName, description, rating, currency, totalCost } =
-        req.body;
+exports.newPackage = async (req, res, next) => {
+  try {
+    const {
+      packageName,
+      description,
+      rating,
+      currency,
+      totalCost,
+      totalDays,
+      remainingSpots,
+    } = req.body;
 
-      //const imageUrl = await uploadFile(req.file);
+    //const imageUrl = await uploadFile(req.file);
 
-      const package = new Package({
-        packageName,
-        /* images: [
+    const package = new Package({
+      packageName,
+      /* images: [
           {
             //url: imageUrl.Location,
             description,
           },
         ], */
-        //rating,
-        currency,
-        totalCost,
-      });
+      //rating,
+      currency,
+      totalCost,
+      totalDays,
+      remainingSpots,
+    });
 
-      await package.save();
-      res.json(package);
-    } catch (err) {
-      res.json(next(err));
-    }
-  },
-];
+    await package.save();
+    res.json(package);
+  } catch (err) {
+    res.json(next(err));
+  }
+};
 
 /* GET ALL PACKAGES */
 
@@ -46,9 +53,7 @@ exports.getAllPackages = async (req, res, next) => {
 
 exports.deleteAPackage = async (req, res, next) => {
   try {
-    console.log("aloha");
     const package = await Package.findOneAndDelete(req.params.id);
-    console.log(package);
     res.json(package);
   } catch (err) {
     res.json(next(err));
@@ -71,6 +76,20 @@ exports.updatePackage = async (req, res, next) => {
       },
       { new: true }
     );
+    res.json(package);
+  } catch (err) {
+    res.json(next(err));
+  }
+};
+
+/* PACKAGE'S FILTER */
+//Will make a search in the DB with the searching key
+//gived and return and array of packages  with that info.
+exports.packageFilter = async (req, res, next) => {
+  try {
+    const { searchingKey, value } = req.body;
+    const package = await Package.find({ [searchingKey]: value });
+
     res.json(package);
   } catch (err) {
     res.json(next(err));

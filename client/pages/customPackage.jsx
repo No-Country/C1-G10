@@ -19,23 +19,31 @@ const CustomPackage = () => {
     <div className={styles.container}>
       <h1>Your destination, your rules</h1>
       <div className={styles.options}>
-        {!destination && (
-          <Destinations setDestination={setDestination} setPrice={setPrice} />
-        )}
-        {destination && !type && <Types setType={setType} />}
-        {type && !category && <Categories setCategory={setCategory} />}
-        {category && !duration && <Duration setDuration={setDuration} />}
-        {duration && !member && <Members setMember={setMember} />}
-        {member && (
-          <PackageDetails
-            destination={destination}
-            type={type}
-            category={category}
-            day={duration}
-            member={member}
-            price={price}
-          />
-        )}
+        <div>
+          {!destination && (
+            <Destinations setDestination={setDestination} setPrice={setPrice} />
+          )}
+        </div>
+        <div>{destination && !type && <Types setType={setType} />}</div>
+        <div>
+          {type && !category && <Categories setCategory={setCategory} />}
+        </div>
+        <div>
+          {category && !duration && <Duration setDuration={setDuration} />}
+        </div>
+        <div>{duration && !member && <Members setMember={setMember} />}</div>
+        <div>
+          {member && (
+            <PackageDetails
+              destination={destination}
+              type={type}
+              category={category}
+              day={duration}
+              member={member}
+              price={price}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

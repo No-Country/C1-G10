@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Cards } from "./Cards";
+import styles from "../../styles/CustomPackage/CardContainer.module.scss";
 
 export const Categories = ({ setCategory }) => {
   const [categories, setCategories] = useState([]);
@@ -13,7 +14,7 @@ export const Categories = ({ setCategory }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {categories.map((category, i) => {
         return <Cards key={i} text={category} click={getCategory} />;
       })}

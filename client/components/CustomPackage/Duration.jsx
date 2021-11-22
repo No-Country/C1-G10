@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Cards } from "./Cards";
+import styles from "../../styles/CustomPackage/CardContainer.module.scss";
 
 export const Duration = ({ setDuration }) => {
   const [tripLength, setTripLength] = useState([]);
@@ -15,7 +16,7 @@ export const Duration = ({ setDuration }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {tripLength.map((length, i) => {
         return <Cards key={i} text={length} click={getDuration} />;
       })}

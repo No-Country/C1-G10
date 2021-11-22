@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Cards } from "./Cards";
+import styles from "../../styles/CustomPackage/CardContainer.module.scss";
 
 export const Destinations = ({ setDestination, setPrice }) => {
   const [destinations, setDestinations] = useState([]);
@@ -23,7 +24,7 @@ export const Destinations = ({ setDestination, setPrice }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {destinations.map((destination, i) => {
         return (
           <Cards

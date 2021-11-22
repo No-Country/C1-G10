@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Cards } from "./Cards";
+import styles from "../../styles/CustomPackage/CardContainer.module.scss";
 
 export const Members = ({ setMember }) => {
   const [members, setMembers] = useState([]);
@@ -15,7 +16,7 @@ export const Members = ({ setMember }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {members.map((member, i) => {
         return <Cards key={i} text={member} click={getMember} />;
       })}

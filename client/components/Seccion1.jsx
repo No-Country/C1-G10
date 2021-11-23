@@ -1,9 +1,10 @@
 const Seccion1=()=>(
-    <div>
-      <section className = 'section1 content'>
-          <div className='section1-image'>
-      <img src='/images/nocountry.png' className='img-fluid'/>
+    <div className ='seccion1-content'>
+       
+          <div className='seccion1-image'>
+      <img src='/images/Country.jpg' className='img-fluid'/>
       </div>
+      <div className='seccion1-tituloyparrafo'>
         <h1>
             NO Country History
         </h1>
@@ -12,8 +13,9 @@ const Seccion1=()=>(
 
 No hemos parado desde ese día. Llevamos más de 12 años viajando por los diferentes rincones del Perú, conectando, compartiendo y aprendiendo. Hemos construido relaciones duraderas con guías locales, agricultores, pastores, biólogos, arqueólogos y muchos otros que comparten nuestra pasión. Hemos abierto innumerables rutas nuevas y encontrado nuevas formas de experimentar sitios convencionales, pero nuestro propósito siempre ha sido el mismo, mostrar a nuestros viajeros el alma del Perú.
 </p>
+</div>
     
-</section>
+
     </div>
 )
 export default Seccion1;

@@ -1,6 +1,6 @@
 const Seccion3=()=>(
-    <div>
-        <div>
+    <div className='seccion3-content'>
+        <div className='seccion3-tituloyparrafo'>
             <h1>
                 BACK END
             </h1>

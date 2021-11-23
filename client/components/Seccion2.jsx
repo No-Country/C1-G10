@@ -1,6 +1,6 @@
 const Seccion2=()=>(
-    <div>
-        <div>
+    <div className ='seccion2-content'>
+        <div className='seccion2-tituloyparrafo'>
             <h1>
                 FRONT END
             </h1>

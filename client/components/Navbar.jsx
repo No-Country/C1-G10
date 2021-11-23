@@ -13,24 +13,24 @@ const Navbar=()=>(
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">Destinations</a>
+        <a className="nav-link active" aria-current="page" href="#">Destinos</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">Travel style</a>
+        <a className="nav-link active" aria-current="page" href="#">Estilo de viaje</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="/aboutus">About us</a>
+        <a className="nav-link active" aria-current="page" href="/aboutus">Sobre nosotros</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">Contact us</a>
+        <a className="nav-link active" aria-current="page" href="#">Contactenos</a>
       </li>
       
       
     </ul>
-    <form className="d-flex">
+    {/* <form className="d-flex">
     
       <button className="btn btn-outline-success" type="submit" >Start planning here</button>
-    </form>
+    </form> */}
   </div>
 </div>
 </nav>

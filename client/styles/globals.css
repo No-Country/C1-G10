@@ -19,3 +19,7 @@ a {
   width: 0; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
 }
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
+}

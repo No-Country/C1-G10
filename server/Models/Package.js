@@ -15,5 +15,4 @@ const PackageSchema = new Schema({
   remainingSpots: String,
   totalDays: Number,
 });
-
 module.exports = mongoose.model("Package", PackageSchema);

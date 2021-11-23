@@ -15,6 +15,31 @@ const db = mongoose.connection;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 db.on("error", console.error.bind(console, "MongoDB connection error"));
 
+/* NODEMAILER */
+/* const nodemailer = require("nodemailer");
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.USER,
+    pass: process.env.PASSWORD,
+  },
+});
+
+const mailOptions = {
+  from: process.env.USER,
+  to: "luisdamian.sp@gmail.com",
+  subject: "Probando la porqueria esta.",
+  text: "Dejate de mandarme cosas para incorporar yo solo, ladillado.",
+};
+
+transporter.sendMail(mailOptions, function (error, info) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Email sent: " + info.response);
+  }
+}); */
+
 var app = express();
 
 // view engine setup

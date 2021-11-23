@@ -49,6 +49,16 @@ exports.getAllPackages = async (req, res, next) => {
   }
 };
 
+/* GET A PACKAGE BY ID */
+exports.getPackageById = async (req, res, next) => {
+  try {
+    const package = await Package.findById(req.params.id);
+    res.json(package);
+  } catch (err) {
+    res.json(next(err));
+  }
+};
+
 /* DELETE A PACKAGE */
 
 exports.deleteAPackage = async (req, res, next) => {
@@ -60,7 +70,7 @@ exports.deleteAPackage = async (req, res, next) => {
   }
 };
 
-/* UPDATE PACKAGE NAME */
+/* UPDATE PACKAGE */
 exports.updatePackage = async (req, res, next) => {
   const { packageName, currency, totalCost } = req.body;
 
@@ -84,7 +94,7 @@ exports.updatePackage = async (req, res, next) => {
 
 /* PACKAGE'S FILTER */
 //Will make a search in the DB with the searching key
-//gived and return and array of packages  with that info.
+//gived and return an array of matching packages.
 exports.packageFilter = async (req, res, next) => {
   try {
     const { searchingKey, value } = req.body;

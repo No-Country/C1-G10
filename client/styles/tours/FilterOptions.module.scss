@@ -23,8 +23,14 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 750px) {
   .container {
-    width: 10rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    font-size: 0.7rem;
   }
 }

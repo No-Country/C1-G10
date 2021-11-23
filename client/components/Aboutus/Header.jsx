@@ -1,7 +1,7 @@
 const Header = () => (
   <div>
     <header className="header content">
-      <img src="/images/Pexelss.jpg" className="img-fluid" />
+      <img src="/images/c.jpg" className="img-fluid" />
       <div className="header-content">
         <h1>Sobre nosotros</h1>
       </div>

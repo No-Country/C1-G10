@@ -9,9 +9,6 @@ export default function Tours() {
 
   return (
     <div>
-      <div className={styles.maxi}>
-        <h2>nav</h2>
-      </div>
       <div className={styles.imageContainer}>
         <Image
           width={1920}

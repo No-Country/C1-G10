@@ -1,16 +1,17 @@
 .container {
-  width: 40rem;
+  width: 100%;
   text-align: center;
   background-color: rgb(255, 254, 254);
   box-shadow: 0rem 0rem 1rem 0rem black;
 
   h2 {
-    font-size: 4rem;
+    font-size: 6rem;
     text-align: center;
+    padding: 2rem 0;
   }
 
   h4 {
-    font-size: 2.2rem;
+    font-size: 4.2rem;
   }
 
   hr {
@@ -23,38 +24,54 @@
     margin: auto;
     justify-content: space-between;
     align-items: center;
-    padding: 0 6rem;
+    padding: 2rem 6rem;
     cursor: pointer;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1900px) {
   .container {
-    width: 30rem;
+    h2 {
+      font-size: 4rem;
+    }
+
+    h4 {
+      font-size: 2.5rem;
+    }
   }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 1300px) {
+  .container {
+    width: 30rem;
+    h2 {
+      font-size: 3rem;
+      padding-top: 1rem;
+    }
+  }
+}
+
+@media (max-width: 960px) {
   .container {
     width: 23rem;
 
     h2 {
-      font-size: 3rem;
-    }
-
-    h4 {
       font-size: 2rem;
     }
 
+    h4 {
+      font-size: 1.8rem;
+    }
+
     .filters {
-      padding: 0 3rem;
+      padding: 2 3rem;
     }
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 750px) {
   .container {
-    width: 15rem;
+    width: 14rem;
 
     h2 {
       font-size: 1.5rem;
@@ -62,6 +79,46 @@
 
     h4 {
       font-size: 1rem;
+    }
+
+    .filters {
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 10rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      font-size: 0.8rem;
+    }
+
+    i {
+      font-size: 0.5rem;
+    }
+
+    .filters {
+      padding: 1 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 7rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    h4 {
+      font-size: 0.6rem;
     }
   }
 }

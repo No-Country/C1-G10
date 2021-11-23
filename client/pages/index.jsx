@@ -6,7 +6,6 @@ import styles from "../styles/Home.module.scss";
 // import styles from "../styles/TitleButton.module.scss"
 import dynamic from "next/dynamic";
 
-
 export default function Home() {
   const Map = React.useMemo(
     () => dynamic(() => import("../components/Map"), { ssr: false }),

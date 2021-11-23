@@ -1,0 +1,58 @@
+.container {
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  margin-top: 10rem;
+}
+
+.imageContainer {
+  position: relative;
+
+  h2 {
+    position: absolute;
+    bottom: 0;
+    left: 10rem;
+    font-size: 12rem;
+    color: white;
+  }
+}
+
+.intro {
+  padding: 3rem 0 0 0;
+  font-size: 2rem;
+  width: 80%;
+  margin: auto;
+}
+
+.maxi {
+  height: 10rem;
+  width: 100%;
+  text-align: center;
+  border: 0.2rem solid black;
+  font-size: 3rem;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 0 1rem;
+    width: 100%;
+  }
+  .intro {
+    font-size: 1rem;
+  }
+
+  .imageContainer {
+    h2 {
+      font-size: 6rem;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .imageContainer {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

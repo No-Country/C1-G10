@@ -7,16 +7,17 @@ export const PackageDetails = ({
   day,
   category,
   price,
+  date,
 }) => {
   const [totalPrice, setTotalPrice] = useState();
 
   useEffect(() => {
     const total = price * member * day;
-    console.log(total, category);
     if (category === "Confort") total *= 1.3;
     if (category === "Deluxe") total *= 1.65;
     setTotalPrice(total);
   }, []);
+
   return (
     <div>
       <h3>{destination}</h3>
@@ -28,6 +29,7 @@ export const PackageDetails = ({
         <p>{day}</p>
         <p>{member}</p>
       </div>
+      <p>{date}</p>
       <p>Price: {totalPrice}</p>
     </div>
   );

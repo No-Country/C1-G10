@@ -1,7 +1,10 @@
 .container {
   width: 30%;
-  height: 30%;
+  height: 8rem;
   margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     cursor: pointer;

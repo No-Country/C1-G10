@@ -14,10 +14,13 @@ export const Categories = ({ setCategory }) => {
   };
 
   return (
-    <div className={styles.container}>
-      {categories.map((category, i) => {
-        return <Cards key={i} text={category} click={getCategory} />;
-      })}
+    <div>
+      <h3>What kind of hotel would you like ?</h3>
+      <div className={styles.container}>
+        {categories.map((category, i) => {
+          return <Cards key={i} text={category} click={getCategory} />;
+        })}
+      </div>
     </div>
   );
 };

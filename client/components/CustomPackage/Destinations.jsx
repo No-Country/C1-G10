@@ -24,17 +24,20 @@ export const Destinations = ({ setDestination, setPrice }) => {
   };
 
   return (
-    <div className={styles.container}>
-      {destinations.map((destination, i) => {
-        return (
-          <Cards
-            key={i}
-            price={destination.price}
-            text={destination.destination}
-            click={getDestination}
-          />
-        );
-      })}
+    <div>
+      <h3>Where do you want to go ?</h3>
+      <div className={styles.container}>
+        {destinations.map((destination, i) => {
+          return (
+            <Cards
+              key={i}
+              price={destination.price}
+              text={destination.destination}
+              click={getDestination}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

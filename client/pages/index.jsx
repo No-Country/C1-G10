@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 
 export default function Home() {
   const Map = React.useMemo(
-    () => dynamic(() => import("../components/Map"), { ssr: false }),
+    () => dynamic(() => import("../components/Home/Map"), { ssr: false }),
     []
   );
 

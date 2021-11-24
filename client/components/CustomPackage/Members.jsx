@@ -8,7 +8,7 @@ export const Members = ({ setMember }) => {
 
   useEffect(() => {
     // GET DESTINATIONS FROM API
-    setMembers(["1", "2", "3", "4", "5"]);
+    setMembers(["1", "2", "3", "4", "5", "6"]);
   }, []);
 
   const getMember = (e) => {
@@ -16,10 +16,13 @@ export const Members = ({ setMember }) => {
   };
 
   return (
-    <div className={styles.container}>
-      {members.map((member, i) => {
-        return <Cards key={i} text={member} click={getMember} />;
-      })}
+    <div>
+      <h3>How many will be traveling ?</h3>
+      <div className={styles.container}>
+        {members.map((member, i) => {
+          return <Cards key={i} text={member} click={getMember} />;
+        })}
+      </div>
     </div>
   );
 };

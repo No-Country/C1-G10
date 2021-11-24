@@ -5,6 +5,8 @@ import { Categories } from "../components/CustomPackage/Categories";
 import { Duration } from "../components/CustomPackage/Duration";
 import { Members } from "../components/CustomPackage/Members";
 import { PackageDetails } from "../components/CustomPackage/PackageDetails";
+import { PackageDate } from "../components/CustomPackage/PackageDate";
+import { PackageNav } from "../components/CustomPackage/PackageNav";
 import styles from "../styles/CustomPackage/customPackage.module.scss";
 
 const CustomPackage = () => {
@@ -14,11 +16,29 @@ const CustomPackage = () => {
   const [duration, setDuration] = useState();
   const [member, setMember] = useState();
   const [price, setPrice] = useState();
+  const [packageDate, setPackageDate] = useState();
+  const [states, setStates] = useState({
+    destination: setDestination,
+    type: setType,
+    category: setCategory,
+    duration: setDuration,
+    member: setMember,
+    packageDate: setPackageDate,
+  });
 
   return (
     <div className={styles.container}>
-      <h1>Your destination, your rules</h1>
+      <h1>Plan your holidays with us</h1>
       <div className={styles.options}>
+        <PackageNav
+          destination={destination}
+          type={type}
+          category={category}
+          duration={duration}
+          member={member}
+          packageDate={packageDate}
+          setter={states}
+        />
         <div>
           {!destination && (
             <Destinations setDestination={setDestination} setPrice={setPrice} />
@@ -26,23 +46,45 @@ const CustomPackage = () => {
         </div>
         <div>{destination && !type && <Types setType={setType} />}</div>
         <div>
-          {type && !category && <Categories setCategory={setCategory} />}
-        </div>
-        <div>
-          {category && !duration && <Duration setDuration={setDuration} />}
-        </div>
-        <div>{duration && !member && <Members setMember={setMember} />}</div>
-        <div>
-          {member && (
-            <PackageDetails
-              destination={destination}
-              type={type}
-              category={category}
-              day={duration}
-              member={member}
-              price={price}
-            />
+          {destination && type && !category && (
+            <Categories setCategory={setCategory} />
           )}
+        </div>
+        <div>
+          {destination && type && category && !duration && (
+            <Duration setDuration={setDuration} />
+          )}
+        </div>
+        <div>
+          {destination && type && category && duration && !member && (
+            <Members setMember={setMember} />
+          )}
+        </div>
+        <div>
+          {destination &&
+            type &&
+            category &&
+            duration &&
+            member &&
+            !packageDate && <PackageDate setPackageDate={setPackageDate} />}
+        </div>
+        <div>
+          {packageDate &&
+            destination &&
+            category &&
+            type &&
+            duration &&
+            member && (
+              <PackageDetails
+                destination={destination}
+                member={member}
+                type={type}
+                day={duration}
+                category={category}
+                price={price}
+                date={packageDate}
+              />
+            )}
         </div>
       </div>
     </div>

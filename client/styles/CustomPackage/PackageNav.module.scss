@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   p {
     margin: 1rem 0;
@@ -11,9 +11,32 @@
     padding: 1rem;
   }
 
+  .activeP {
+    background-color: #1b3974;
+    color: white;
+    transition: all 0.3s;
+  }
+
   span {
-    border: 1px solid black;
+    border: 0.8px solid black;
+    height: 0.5rem;
     width: 5rem;
     margin: 0;
+  }
+}
+
+.reset {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  display: inline-block;
+  border-radius: 1rem;
+  letter-spacing: 0.3rem;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 0 black;
   }
 }

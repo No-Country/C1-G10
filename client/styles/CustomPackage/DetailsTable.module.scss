@@ -1,0 +1,36 @@
+.container {
+  width: 20rem;
+  padding: 1rem;
+  margin: auto;
+  box-shadow: 0px 0px 0px 1px black;
+
+  .table {
+    margin: 2rem auto;
+  }
+
+  .table tr td {
+    border: 1px solid black;
+    padding: 0.3rem;
+  }
+}
+
+.contact {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1b3974;
+  color: white;
+  display: inline-block;
+  border-radius: 1rem;
+  letter-spacing: 0.3rem;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 0 black;
+  }
+}
+
+.loading {
+  margin-top: 8rem;
+}

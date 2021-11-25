@@ -26,6 +26,16 @@ const CustomPackage = () => {
     packageDate: setPackageDate,
   });
 
+  const resetState = () => {
+    setDestination();
+    setType();
+    setCategory();
+    setDuration();
+    setMember();
+    setPrice();
+    setPackageDate();
+  };
+
   return (
     <div className={styles.container}>
       <h1>Plan your holidays with us</h1>
@@ -38,6 +48,7 @@ const CustomPackage = () => {
           member={member}
           packageDate={packageDate}
           setter={states}
+          resetState={resetState}
         />
         <div>
           {!destination && (
@@ -83,6 +94,7 @@ const CustomPackage = () => {
                 category={category}
                 price={price}
                 date={packageDate}
+                resetState={resetState}
               />
             )}
         </div>

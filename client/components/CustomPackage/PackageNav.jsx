@@ -8,35 +8,66 @@ export const PackageNav = ({
   member,
   packageDate,
   setter,
+  resetState,
 }) => {
+  // UPDATE THE SPECIFIC STATE
   const updateState = (state) => {
     state();
   };
+
   return (
-    <div className={styles.container}>
-      {destination && (
-        <p onClick={() => updateState(setter.destination)}>{destination}</p>
-      )}
-      {destination && <span></span>}
-      {destination && type && (
-        <p onClick={() => updateState(setter.type)}>{type}</p>
-      )}
-      {type && <span></span>}
-      {destination && type && category && (
-        <p onClick={() => updateState(setter.category)}>{category}</p>
-      )}
-      {category && <span></span>}
-      {destination && type && category && duration && (
-        <p onClick={() => updateState(setter.duration)}>{duration}</p>
-      )}
-      {duration && <span></span>}
-      {destination && type && category && duration && member && (
-        <p onClick={() => updateState(setter.member)}>{member}</p>
-      )}
-      {member && <span></span>}
-      {destination && type && category && duration && member && packageDate && (
-        <p onClick={() => updateState(setter.packageDate)}>{packageDate}</p>
-      )}
+    <div>
+      <div className={styles.container}>
+        <p
+          className={destination ? styles.activeP : null}
+          onClick={() => updateState(setter.destination)}
+        >
+          {destination ? destination : "Where ?"}
+        </p>
+        {<span className={destination ? styles.activeP : null}></span>}
+
+        <p
+          className={type ? styles.activeP : null}
+          onClick={() => updateState(setter.type)}
+        >
+          {type ? type : "What kind ?"}
+        </p>
+        <span className={type ? styles.activeP : null}></span>
+
+        <p
+          className={category ? styles.activeP : null}
+          onClick={() => updateState(setter.category)}
+        >
+          {category ? category : "Accomodation ?"}
+        </p>
+        {<span className={category ? styles.activeP : null}></span>}
+
+        <p
+          className={duration ? styles.activeP : null}
+          onClick={() => updateState(setter.duration)}
+        >
+          {duration ? duration : "How long ?"}
+        </p>
+        {<span className={duration ? styles.activeP : null}></span>}
+
+        <p
+          className={member ? styles.activeP : null}
+          onClick={() => updateState(setter.member)}
+        >
+          {member ? member : "With who ?"}
+        </p>
+        {<span className={member ? styles.activeP : null}></span>}
+
+        <p
+          className={packageDate ? styles.activeP : null}
+          onClick={() => updateState(setter.packageDate)}
+        >
+          {packageDate ? packageDate : "When ?"}
+        </p>
+      </div>
+      <p onClick={resetState} className={styles.reset}>
+        Reset
+      </p>
     </div>
   );
 };

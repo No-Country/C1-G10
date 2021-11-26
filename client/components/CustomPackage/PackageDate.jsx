@@ -14,7 +14,12 @@ export const PackageDate = ({ setPackageDate }) => {
     <div>
       <h3>Whats your prefered date ? ?</h3>
       <div className={styles.container}>
-        <input type="date" value={date} onChange={getPackageDate} />
+        <input
+          type="date"
+          min={new Date().toISOString().slice(0, -14)}
+          value={date}
+          onChange={getPackageDate}
+        />
       </div>
     </div>
   );

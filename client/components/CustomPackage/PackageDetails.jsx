@@ -29,14 +29,17 @@ export const PackageDetails = ({
       setLoading(false);
       resetState();
       Router.push("/");
-    }, 2000);
+    }, 4000);
   };
 
   const Message = () => {
     return (
       <div className={styles.loading}>
-        <p>Thanks four your time</p>
-        <p>we will contact you soon</p>
+        <h5>Thank you.</h5>
+        <p>
+          We hope your experience was awesome and we can’t wait to see you again
+          soon.
+        </p>
       </div>
     );
   };

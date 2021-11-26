@@ -1,10 +1,17 @@
 const Package = require("../Models/Package");
-
+const Images = require("../Models/Images");
+const Destination = require("../Models/TravelInfo/Destination");
+const Category = require("../Models/TravelInfo/Category");
+const Type = require("../Models/TravelInfo/Type");
 /* CREATE NEW PACKAGE */
 
 exports.newPackage = async (req, res, next) => {
   try {
     const {
+      imageId,
+      destinationId,
+      categoryId,
+      typeId,
       packageName,
       description,
       rating,
@@ -14,21 +21,23 @@ exports.newPackage = async (req, res, next) => {
       remainingSpots,
     } = req.body;
 
-    //const imageUrl = await uploadFile(req.file);
+    const image = await Images.findById(imageId);
+    const destination = await Destination.findById(destinationId);
+    const category = await Category.findById(categoryId);
+    const type = await Type.findById(typeId);
 
     const package = new Package({
       packageName,
-      /* images: [
-          {
-            //url: imageUrl.Location,
-            description,
-          },
-        ], */
+      images: image.images,
+      description,
       //rating,
       currency,
       totalCost,
       totalDays,
       remainingSpots,
+      destination,
+      category,
+      type,
     });
 
     await package.save();

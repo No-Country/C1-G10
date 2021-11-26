@@ -7,8 +7,6 @@ import Layout from "../components/Layout/Layout";
 
 config.autoAddCss = false;
 
-
-
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>

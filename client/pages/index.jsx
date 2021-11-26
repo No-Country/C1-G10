@@ -1,16 +1,8 @@
-import React from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
 import { Cover } from "../components/Home/Cover";
-import dynamic from "next/dynamic";
+import { MapContainer } from "../components/Home/MapContainer";
 
 export default function Home() {
-  const Map = React.useMemo(
-    () => dynamic(() => import("../components/Home/Map"), { ssr: false }),
-    []
-  );
-
-  // }
   return (
     <div>
       <Head>
@@ -25,15 +17,7 @@ export default function Home() {
         ></link>
       </Head>
       <Cover />
-      <div>
-        <h2 className={styles.titleB}>Discover the soul of</h2>
-        <button className={styles.btn} onClick={(e) => handleOnClick(e)}>
-          Select your Trip
-        </button>
-      </div>
-      <div>
-        <Map />
-      </div>
+      <MapContainer />
     </div>
   );
 }

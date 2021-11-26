@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-const user = require("./Routes/user");
+const user = require("./Routes/User");
 
 /* MONGODB CONNECTION */
 const mongoose = require("mongoose");

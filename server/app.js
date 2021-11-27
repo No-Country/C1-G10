@@ -15,6 +15,8 @@ const db = mongoose.connection;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 db.on("error", console.error.bind(console, "MongoDB connection error"));
 
+const cors = require("cors");
+
 /* NODEMAILER */
 /* const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
@@ -53,6 +55,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
+
+app.use(cors());
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

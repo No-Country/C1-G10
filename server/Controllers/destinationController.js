@@ -17,3 +17,14 @@ exports.newDestinationModel = async (req, res, next) => {
     res.json(next(err));
   }
 };
+
+/* GET ALL DESTINATION MODELS */
+
+exports.getAllDestinations = async (req, res, next) => {
+  try {
+    const destination = await Destination.find({});
+    return res.json(destination);
+  } catch (err) {
+    res.json(next(err));
+  }
+};

@@ -16,3 +16,14 @@ exports.newTypeModel = async (req, res, next) => {
     res.json(next(err));
   }
 };
+
+/* GET ALL TYPE MODELS */
+
+exports.getAllTypes = async (req, res, next) => {
+  try {
+    const type = await Type.find({});
+    return res.json(type);
+  } catch (err) {
+    res.json(next(err));
+  }
+};

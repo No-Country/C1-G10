@@ -8,7 +8,6 @@ const Type = require("../Models/TravelInfo/Type");
 exports.newPackage = async (req, res, next) => {
   try {
     const {
-      imageId,
       destinationId,
       categoryId,
       typeId,
@@ -21,7 +20,8 @@ exports.newPackage = async (req, res, next) => {
       remainingSpots,
     } = req.body;
 
-    const image = await Images.findById(imageId);
+    //Cambiar busqueda imagenes por destination
+    const image = await Images.findOne({ destination: destinationId });
     const destination = await Destination.findById(destinationId);
     const category = await Category.findById(categoryId);
     const type = await Type.findById(typeId);

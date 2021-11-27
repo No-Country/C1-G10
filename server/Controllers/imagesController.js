@@ -1,4 +1,5 @@
 const Images = require("../Models/Images");
+const Destination = require("../Models/TravelInfo/Destination");
 
 /* CREATE NEW DESTINATION'S IMAGE ARRAY */
 
@@ -7,8 +8,10 @@ exports.newImageSet = async (req, res, next) => {
     //Creates an array with path info from multier upload.
     const pathsArray = [];
     req.files.map((file) => pathsArray.push(file.path));
-    const { destination } = req.body;
-
+    //
+    const { destinationId } = req.body;
+    const destination = await Destination.findById(destinationId);
+    console.log(destination);
     const image = new Images({
       destination,
       images: pathsArray,

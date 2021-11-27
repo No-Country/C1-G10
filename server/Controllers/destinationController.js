@@ -4,10 +4,11 @@ const Destination = require("../Models/TravelInfo/Destination");
 
 exports.newDestinationModel = async (req, res, next) => {
   try {
-    const { destinationName } = req.body;
+    const { destinationName, coordinates } = req.body;
 
     const destination = new Destination({
       destinationName,
+      coordinates,
     });
 
     await destination.save();

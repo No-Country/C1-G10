@@ -5,7 +5,7 @@ const PackageSchema = new Schema({
   packageName: String,
   images: [],
   description: String,
-  rating: [],
+  //rating: [],
   currency: String,
   totalCost: Number,
   remainingSpots: String,

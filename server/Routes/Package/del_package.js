@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const packageController = require("../../Controllers/packageController");
-const multer = require("multer");
 
-router.post("/newPackage", packageController.newPackage);
+/* DELETE A PACKAGE */
+
+router.delete("/delPackage/:id", packageController.deleteAPackage);
+
+module.exports = router;

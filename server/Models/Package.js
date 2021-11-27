@@ -3,23 +3,15 @@ const Schema = mongoose.Schema;
 
 const PackageSchema = new Schema({
   packageName: String,
-  images: [
-    {
-      url: imageUrl.Location,
-      description: String,
-    },
-  ],
-  rating: [],
+  images: [],
+  description: String,
+  //rating: [],
   currency: String,
   totalCost: Number,
-  //travelInfo are keys/categories for the search tab.
-  /* travelInfo: {
-    destination: String, //Country, city, etc...
-    type: String, //Type of travel. Familiar, adventure, honeymoon, etc...
-    costsType: String, //Standard, Expensive, Luxury, etc..
-    travelDuration: String,
-    spots: Number,
-  }, */
+  remainingSpots: String,
+  totalDays: Number,
+  destination: { type: Schema.Types.ObjectId, ref: "Destination" },
+  category: { type: Schema.Types.ObjectId, ref: "Category" },
+  type: { type: Schema.Types.ObjectId, ref: "Type" },
 });
-
 module.exports = mongoose.model("Package", PackageSchema);

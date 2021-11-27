@@ -7,8 +7,9 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import styles from "../../styles/Home/Map.module.scss";
 
-const Map = ({ setMap, pos }) => {
+const Map = ({ setMap, pos, destination }) => {
   // SET THE MARKER ICON
   const icon = L.icon({ iconUrl: "/images/marker-icon.png" });
 
@@ -20,7 +21,12 @@ const Map = ({ setMap, pos }) => {
     });
     return pos === null ? null : (
       <Marker position={pos} icon={icon}>
-        <Popup>Here</Popup>
+        <Popup>
+          <div>
+            <h1>{destination}</h1>
+            <img src="#" alt="" />
+          </div>
+        </Popup>
       </Marker>
     );
   };
@@ -31,6 +37,7 @@ const Map = ({ setMap, pos }) => {
       center={[51.505, -0.09]}
       zoom={10}
       scrollWheelZoom={false}
+      className={styles.map}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

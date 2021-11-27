@@ -7,6 +7,7 @@ import { useState } from "react";
 export const MapContainer = () => {
   const [position, setPosition] = useState(null);
   const [map, setMap] = useState(null);
+  const [destination, setDestination] = useState();
 
   const Map = React.useMemo(
     () => dynamic(() => import("./Map"), { ssr: false }),
@@ -20,11 +21,13 @@ export const MapContainer = () => {
         <button className={styles.btn}>Select your Trip</button>
       </div>
       <div className={styles.grid}>
-        <div className={styles.map}>
-          <Map pos={position} setMap={setMap} />
-        </div>
+        <Map pos={position} setMap={setMap} destination={destination} />
         <div className={styles.trips}>
-          <Trips setPosition={setPosition} map={map} />
+          <Trips
+            setPosition={setPosition}
+            setDestination={setDestination}
+            map={map}
+          />
         </div>
       </div>
     </div>

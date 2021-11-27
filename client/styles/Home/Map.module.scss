@@ -17,17 +17,17 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 1rem;
   margin: 1rem;
+  height: 500px;
 
-  .map {
-    margin: 1rem;
-    div {
-      width: 100%;
-    }
+  .trips {
+    width: 90%;
+    height: 90%;
   }
+}
 
-  .trip {
-    background-color: orange;
-  }
+.map {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
 }

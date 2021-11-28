@@ -23,6 +23,16 @@
   .trips {
     width: 90%;
     height: 90%;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      div {
+        width: 30%;
+      }
+    }
   }
 }
 

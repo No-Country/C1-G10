@@ -35,7 +35,7 @@ export const filterPackages = createAsyncThunk(
 export const getAllDestinations = createAsyncThunk(
   "GET_DESTINATIONS",
   async () => {
-    const response = await fetch(`${url}getAllDestinations`);
+    const response = await fetch(`${url}/getAllDestinations`);
     const data = await response.json();
     return data;
   }

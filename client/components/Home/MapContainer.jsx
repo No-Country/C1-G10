@@ -17,8 +17,7 @@ export const MapContainer = () => {
   return (
     <div>
       <div className={styles.container}>
-        <h2 className={styles.titleB}>Discover the soul of</h2>
-        <button className={styles.btn}>Select your Trip</button>
+        <h2 className={styles.titleB}>Discover our destinations</h2>
       </div>
       <div className={styles.grid}>
         <Map pos={position} setMap={setMap} destination={destination} />

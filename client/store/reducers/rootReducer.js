@@ -21,7 +21,6 @@ const rootReducer = createReducer(initialState, (builder) => {
   });
   /* FILTERED PACKAGES */
   builder.addCase(filterPackages.fulfilled, (state, action) => {
-    console.log(action);
     state.packages.push(action.payload);
   });
 });

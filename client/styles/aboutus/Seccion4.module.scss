@@ -1,0 +1,23 @@
+.hola {
+  background-image: url("https://userscontent2.emaze.com/images/1e2da0d8-a55f-4428-957d-a2baca810398/b9613af6c4badfbd8faf1594f13a7177.jpg");
+
+  text-align: center;
+
+  font-weight: bold;
+  h1 {
+    color: white;
+  }
+  p {
+    color: white;
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 5px;
+  }
+}

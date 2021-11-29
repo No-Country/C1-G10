@@ -4,11 +4,17 @@ const Destination = require("../Models/TravelInfo/Destination");
 
 exports.newDestinationModel = async (req, res, next) => {
   try {
+    //Creates an array with path info from multier upload.
+    const pathsArray = [];
+    req.files.map((file) => pathsArray.push(file.path));
+    //
+
     const { destinationName, coordinates } = req.body;
 
     const destination = new Destination({
       destinationName,
       coordinates,
+      images: pathsArray,
     });
 
     await destination.save();

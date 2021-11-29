@@ -21,14 +21,13 @@ exports.newPackage = async (req, res, next) => {
     } = req.body;
 
     //Cambiar busqueda imagenes por destination
-    const image = await Images.findOne({ destination: destinationId });
     const destination = await Destination.findById(destinationId);
     const category = await Category.findById(categoryId);
     const type = await Type.findById(typeId);
 
     const package = new Package({
       packageName,
-      images: image.images,
+      images: destination.images,
       description,
       //rating,
       currency,
@@ -51,7 +50,10 @@ exports.newPackage = async (req, res, next) => {
 
 exports.getAllPackages = async (req, res, next) => {
   try {
-    const package = await Package.find({});
+    const package = await Package.find({})
+      .populate("type")
+      .populate("destination")
+      .populate("category");
     return res.json(package);
   } catch (err) {
     return res.json(next(err));

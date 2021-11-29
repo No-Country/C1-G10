@@ -1,8 +1,12 @@
 import Head from "next/head";
-import Header from "../components/Aboutus/Header";
+import Seccion0 from "../components/Aboutus/Seccion0";
 import Seccion1 from "../components/Aboutus/Seccion1";
 import Seccion2 from "../components/Aboutus/Seccion2";
 import Seccion3 from "../components/Aboutus/Seccion3";
+import Seccion4 from "../components/Aboutus/Seccion4";
+import Seccion5 from "../components/Aboutus/Seccion5";
+import Seccion6 from "../components/Aboutus/Seccion6";
+import Footer from "../components/Layout/Footer";
 
 export default function Home() {
   return (
@@ -18,11 +22,21 @@ export default function Home() {
           crossOrigin="anonymous"
         ></link>
       </Head>
-      <Header />
+      <Seccion0 />
       <hr></hr>
       <Seccion1 />
+      <hr></hr>
+      <Seccion4 />
+      <hr></hr>
       <Seccion2 />
+      <hr></hr>
       <Seccion3 />
+      <hr></hr>
+      <Seccion5 />
+
+      <Seccion6 />
+
+      <Footer />
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

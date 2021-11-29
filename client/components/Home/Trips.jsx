@@ -7,7 +7,6 @@ export const Trips = ({ setPosition, map, setDestination }) => {
   const dispatch = useDispatch();
   const [destinations] = useSelector((state) => state.destinations);
   const [randomDest, setRandomDest] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
 
   useEffect(() => {
     dispatch(getAllDestinations());
@@ -33,7 +32,7 @@ export const Trips = ({ setPosition, map, setDestination }) => {
   return destinations ? (
     <div>
       {destinations.map((destination, index) => {
-        const { destinationName, coordinates } = destination;
+        const { destinationName, coordinates, images } = destination;
         const lat = coordinates[0].split(",")[0];
         const lng = coordinates[0].split(",")[1];
 
@@ -46,6 +45,7 @@ export const Trips = ({ setPosition, map, setDestination }) => {
             click={() => {
               goTo(destinationName, lat, lng, index);
             }}
+            bgImg={images[0]}
           />
         );
       })}

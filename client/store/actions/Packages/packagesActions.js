@@ -15,7 +15,7 @@ export const filterPackages = createAsyncThunk(
     try {
       const { searchingKey, value } = payload;
       const response = await fetch(`${url}/getFilteredPackages`, {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           searchingKey,

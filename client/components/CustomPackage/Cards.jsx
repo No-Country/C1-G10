@@ -1,16 +1,18 @@
 import Image from "next/image";
 import styles from "../../styles/CustomPackage/Cards.module.scss";
 
-export const Cards = ({ text, bgImg, click, price, active }) => {
+export const Cards = ({ text, bgImg, click, active }) => {
   return (
     <div
       className={active ? styles.active : styles.container}
       id={text}
-      data--price={price}
       onClick={click}
+      style={{ backgroundImage: `url(${bgImg})` }}
     >
-      {bgImg && <Image width={144} height={144} src={bgImg} />}
-      <p>{text}</p>
+      {/* {bgImg && <Image id={text} layout="fill" src={bgImg} />} */}
+      <p id={text} onClick={click}>
+        {text}
+      </p>
     </div>
   );
 };

@@ -12,15 +12,7 @@ export const PackageDetails = ({
   date,
   resetState,
 }) => {
-  const [totalPrice, setTotalPrice] = useState();
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const total = price * member * day;
-    if (category === "Confort") total *= 1.3;
-    if (category === "Deluxe") total *= 1.65;
-    setTotalPrice(total);
-  }, []);
 
   // SEND INFORMATION AND REDIRECT
   const contactUs = () => {
@@ -52,28 +44,37 @@ export const PackageDetails = ({
       <table className={styles.table}>
         <tbody>
           <tr>
-            <td>Type</td>
+            <td>
+              <b>Type</b>
+            </td>
             <td>{type}</td>
           </tr>
           <tr>
-            <td>Accomodation</td>
+            <td>
+              <b>Accomodation</b>
+            </td>
             <td>{category}</td>
           </tr>
           <tr>
-            <td>Duration</td>
+            <td>
+              <b>Duration</b>
+            </td>
             <td>{day}</td>
           </tr>
           <tr>
-            <td>Group</td>
+            <td>
+              <b>Group</b>
+            </td>
             <td>{member}</td>
           </tr>
           <tr>
-            <td>Date</td>
+            <td>
+              <b>Date</b>
+            </td>
             <td>{date}</td>
           </tr>
         </tbody>
       </table>
-      <h3>Price: {totalPrice}</h3>
       <p onClick={contactUs} className={styles.contact}>
         Contact us
       </p>

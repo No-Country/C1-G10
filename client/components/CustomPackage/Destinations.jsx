@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Cards } from "./Cards";
 import styles from "../../styles/CustomPackage/CardContainer.module.scss";
+import { getAllDestinations } from "../../store/actions/Packages/packagesActions";
 
 export const Destinations = ({ setDestination, setPrice }) => {
   const [destinations, setDestinations] = useState([]);
+  const [destinationsStore] = useSelector((state) => state.destinations);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // GET DESTINATIONS FROM API
-    setDestinations([
-      { destination: "Cancun", price: 50 },
-      { destination: "Hawai", price: 65 },
-      { destination: "Peru", price: 30 },
-      { destination: "Brasil", price: 37 },
-      { destination: "Pakistan", price: 25 },
-      { destination: "USA", price: 40 },
-    ]);
+    dispatch(getAllDestinations());
   }, []);
+
+  useEffect(() => {
+    setDestinations(destinationsStore);
+  }, [destinationsStore]);
 
   const getDestination = (e) => {
     setDestination(e.target.id);
@@ -27,16 +27,19 @@ export const Destinations = ({ setDestination, setPrice }) => {
     <div>
       <h3>Where do you want to go ?</h3>
       <div className={styles.container}>
-        {destinations.map((destination, i) => {
-          return (
-            <Cards
-              key={i}
-              price={destination.price}
-              text={destination.destination}
-              click={getDestination}
-            />
-          );
-        })}
+        {destinations &&
+          destinations.map((destination, i) => {
+            const { destinationName, images } = destination;
+            return (
+              <Cards
+                key={i}
+                price={destination.price}
+                text={destinationName}
+                click={getDestination}
+                bgImg={images[0]}
+              />
+            );
+          })}
       </div>
     </div>
   );

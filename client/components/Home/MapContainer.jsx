@@ -22,11 +22,13 @@ export const MapContainer = () => {
       <div className={styles.grid}>
         <Map pos={position} setMap={setMap} destination={destination} />
         <div className={styles.trips}>
-          <Trips
-            setPosition={setPosition}
-            setDestination={setDestination}
-            map={map}
-          />
+          {map && (
+            <Trips
+              setPosition={setPosition}
+              setDestination={setDestination}
+              map={map}
+            />
+          )}
         </div>
       </div>
     </div>

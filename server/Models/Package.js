@@ -8,7 +8,7 @@ const PackageSchema = new Schema({
   //rating: [],
   currency: String,
   totalCost: Number,
-  remainingSpots: String,
+  remainingSpots: Number,
   totalDays: Number,
   destination: { type: Schema.Types.ObjectId, ref: "Destination" },
   category: { type: Schema.Types.ObjectId, ref: "Category" },

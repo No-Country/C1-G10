@@ -3,6 +3,7 @@ const Images = require("../Models/Images");
 const Destination = require("../Models/TravelInfo/Destination");
 const Category = require("../Models/TravelInfo/Category");
 const Type = require("../Models/TravelInfo/Type");
+const { Query } = require("mongoose");
 /* CREATE NEW PACKAGE */
 
 exports.newPackage = async (req, res, next) => {
@@ -108,9 +109,9 @@ exports.updatePackage = async (req, res, next) => {
 //gived and return an array of matching packages.
 exports.packageFilter = async (req, res, next) => {
   try {
-    const { searchingKey, value } = req.body;
-    const package = await Package.find({ [searchingKey]: value });
-
+    const package = await Package.find({
+      [req.query.searchingKey]: req.query.value,
+    });
     res.json(package);
   } catch (err) {
     res.json(next(err));

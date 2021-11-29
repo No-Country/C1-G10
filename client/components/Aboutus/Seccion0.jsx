@@ -1,12 +1,18 @@
-const Header = () => (
+import styles from "../../styles/aboutus/Seccion0.module.scss";
+import Image from "next/image";
+const Seccion0 = () => (
   <div>
-    <header className="header content">
-      <img src="/images/c.jpg" className="img-fluid" />
-      <div className="header-content">
-        <h1>Sobre nosotros</h1>
-      </div>
-    </header>
-    <div>
+    <div className={styles.Seccion0conteiner}>
+      <Image
+        width={1920}
+        height={500}
+        layout="responsive"
+        src="/images/Pexelss.jpg"
+      />
+
+      <h1 className="textosobreimagen">SOBRE NOSOTROS</h1>
+    </div>
+    <div className={styles.parrafo}>
       <p>
         -¿Quiénes somos?<br></br>
         Somos una comunidad de juniors devs, donde emulamos entornos de la vida
@@ -26,4 +32,4 @@ const Header = () => (
     </div>
   </div>
 );
-export default Header;
+export default Seccion0;

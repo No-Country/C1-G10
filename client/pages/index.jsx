@@ -6,7 +6,6 @@ import styles from "../styles/Home.module.scss";
 // import styles from "../styles/TitleButton.module.scss"
 import dynamic from "next/dynamic";
 
-
 export default function Home() {
   const Map = React.useMemo(
     () => dynamic(() => import("../components/Map"), { ssr: false }),
@@ -36,6 +35,11 @@ export default function Home() {
       <div>
         <Map />
       </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossOrigin="anonymous"
+      ></script>
     </div>
   );
 }

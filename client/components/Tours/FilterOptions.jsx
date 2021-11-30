@@ -6,7 +6,6 @@ import { filterPackages } from "../../store/actions/Packages/packagesActions";
 export const FilterOptions = ({ filterBy }) => {
   const dispatch = useDispatch();
   const [filtered, setFiltered] = useState([]);
-  const [valueToSearch, setValueToSearch] = useState("");
 
   const [packages] = useSelector((state) => state.packages);
 
@@ -36,8 +35,7 @@ export const FilterOptions = ({ filterBy }) => {
   };
 
   const getToursBy = (key, value) => {
-    console.log("CLick");
-    dispatch(filterPackages({ packageName: "Cancun Power" }));
+    dispatch(filterPackages(["packageName", "Cancun Paradise"]));
   };
 
   useEffect(() => {

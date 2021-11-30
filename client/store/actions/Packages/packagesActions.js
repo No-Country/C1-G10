@@ -13,15 +13,14 @@ export const filterPackages = createAsyncThunk(
   "GET_FILTERED",
   async (payload) => {
     try {
-      const { searchingKey, value } = payload;
-      const response = await fetch(`${url}/getFilteredPackages`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          searchingKey,
-          value,
-        }),
-      });
+      const [searchingKey, value] = payload;
+      const response = await fetch(
+        `${url}/getFilteredPackages?searchingKey=${searchingKey}&value=${value}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const data = await response.json();
       console.log(data);
       return data;

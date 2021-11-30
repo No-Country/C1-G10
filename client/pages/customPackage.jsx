@@ -38,7 +38,9 @@ const CustomPackage = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Plan your holidays with us</h1>
+      <div className={styles.title}>
+        <h1>Plan your holidays with us</h1>
+      </div>
       <div className={styles.options}>
         <PackageNav
           destination={destination}

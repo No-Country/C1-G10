@@ -12,7 +12,7 @@ export default function Tours() {
       <div className={styles.imageContainer}>
         <Image
           width={1920}
-          height={500}
+          height={800}
           layout="responsive"
           src="/images/snowy-mountain.jpg"
         />

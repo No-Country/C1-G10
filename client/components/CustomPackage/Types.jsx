@@ -15,10 +15,13 @@ export const Types = ({ setType }) => {
   };
 
   return (
-    <div className={styles.container}>
-      {types.map((type, i) => {
-        return <Cards key={i} text={type} click={getType} />;
-      })}
+    <div>
+      <h3>What kind of travel do you enjoy ?</h3>
+      <div className={styles.container}>
+        {types.map((type, i) => {
+          return <Cards key={i} text={type} click={getType} />;
+        })}
+      </div>
     </div>
   );
 };

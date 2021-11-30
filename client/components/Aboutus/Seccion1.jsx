@@ -1,10 +1,14 @@
+import styles from "../../styles/aboutus/Seccion1.module.scss";
+
 const Seccion1 = () => (
   <div>
-    <section className="section1 content">
-      <div className="section1-image">
-        <img src="/images/nocountry.png" className="img-fluid" />
-      </div>
+    <div className={styles.Seccion0conteiner}>
+      <img src="/images/Country.jpg" className="img-fluid" />
+
       <h1>NO Country History</h1>
+    </div>
+    <div className={styles.parrafo}>
+      <img src="/images/nc.jpg" className="img-fluid" />
       <p>
         En 2008, ya éramos ávidos viajeros. Quedamos absolutamente enganchados
         con los paisajes dramáticos de Perú, las antiguas civilizaciones, la
@@ -23,7 +27,7 @@ const Seccion1 = () => (
         experimentar sitios convencionales, pero nuestro propósito siempre ha
         sido el mismo, mostrar a nuestros viajeros el alma del Perú.
       </p>
-    </section>
+    </div>
   </div>
 );
 export default Seccion1;

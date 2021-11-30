@@ -1,8 +1,10 @@
 import styles from "../../styles/tours/FilterOptions.module.scss";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { filterPackages } from "../../store/actions/Packages/packagesActions";
 
 export const FilterOptions = ({ filterBy }) => {
+  const dispatch = useDispatch();
   const [filtered, setFiltered] = useState([]);
   const [valueToSearch, setValueToSearch] = useState("");
 
@@ -12,7 +14,17 @@ export const FilterOptions = ({ filterBy }) => {
   const filterArray = (value) => {
     const arr = [];
     packages.map((elem) => {
-      arr.push(elem[value]);
+      switch (value) {
+        case "destination":
+          arr.push(elem[value].destinationName);
+          break;
+        case "type":
+          arr.push(elem[value].typeName);
+          break;
+        case "category":
+          arr.push(elem[value].categoryName);
+          break;
+      }
     });
     const filtered = Array.from(new Set(arr));
     setFiltered(filtered);
@@ -23,26 +35,20 @@ export const FilterOptions = ({ filterBy }) => {
     setFiltered(["1-5", "5-10", "10-15"]);
   };
 
-  const getToursBy = () => {};
+  const getToursBy = (key, value) => {
+    console.log("CLick");
+    dispatch(filterPackages({ packageName: "Cancun Power" }));
+  };
 
   useEffect(() => {
     if (packages) {
-      switch (filterBy) {
-        case "Destination":
-          filterArray("destination");
-          break;
-        case "Days":
-          filterDays();
-          break;
-        case "Type":
-          filterArray("Type");
-          break;
-        case "Category":
-          filterArray("Category");
-          break;
+      if (filterBy === "Days") {
+        filterDays();
+        return;
       }
+      filterArray(filterBy.toLowerCase());
     }
-  }, [packages]);
+  }, []);
 
   return (
     <div>
@@ -50,7 +56,7 @@ export const FilterOptions = ({ filterBy }) => {
         filtered.map((elem, index) => {
           return (
             <div key={index} className={styles.container}>
-              <p>{elem}</p>
+              <p onClick={getToursBy}>{elem}</p>
             </div>
           );
         })}

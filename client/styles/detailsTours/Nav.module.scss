@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.text{
+    background-color: #22202015;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    display: column;
+}
+
+.options{
+
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    width: 800;
+    height: 300;
+        // layout: responsive;
+}

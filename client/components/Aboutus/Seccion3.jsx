@@ -9,6 +9,7 @@ const Seccion3 = () => (
     <div className={styles.container}>
       <a href="http://linkedin.com/in/">
         <img src="/images/jorge.jpg" />
+
         <p>Jorge Barreto</p>
       </a>
       <a href="http://linkedin.com/in/alexmarinmendez">

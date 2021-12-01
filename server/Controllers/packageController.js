@@ -1,5 +1,4 @@
 const Package = require("../Models/Package");
-const Images = require("../Models/Images");
 const Destination = require("../Models/TravelInfo/Destination");
 const Category = require("../Models/TravelInfo/Category");
 const Type = require("../Models/TravelInfo/Type");
@@ -21,7 +20,6 @@ exports.newPackage = async (req, res, next) => {
       remainingSpots,
     } = req.body;
 
-    //Cambiar busqueda imagenes por destination
     const destination = await Destination.findById(destinationId);
     const category = await Category.findById(categoryId);
     const type = await Type.findById(typeId);
@@ -75,7 +73,7 @@ exports.getPackageById = async (req, res, next) => {
 
 exports.deleteAPackage = async (req, res, next) => {
   try {
-    const package = await Package.findOneAndDelete(req.params.id);
+    const package = await Package.findByIdAndDelete(req.params.id);
     res.json(package);
   } catch (err) {
     res.json(next(err));

@@ -3,9 +3,13 @@ const url = "http://localhost:5002";
 
 /* GET ALL PACKAGES */
 export const getAllPackages = createAsyncThunk("GET_PACKAGES", async () => {
-  const response = await fetch(`${url}/getAllPackages`);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${url}/getAllPackages`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 });
 
 /* FILTER PACKAGES */
@@ -25,7 +29,7 @@ export const filterPackages = createAsyncThunk(
       console.log(data);
       return data;
     } catch (err) {
-      console.log(err);
+      return err;
     }
   }
 );

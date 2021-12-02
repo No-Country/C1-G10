@@ -3,7 +3,6 @@ import { Galery } from "../components/DetailsTours/Galery";
 import { Itinerary } from "../components/DetailsTours/Itinerary";
 import { Nav } from "../components/DetailsTours/Nav";
 import { Items } from "../components/DetailsTours/Items";
-import { Map } from "../components/Map/Map";
 import Image from "next/image";
 import styles from "../styles/detailsTours/DetailTours.module.scss";
 
@@ -32,7 +31,6 @@ export default function DetailTours() {
       <hr></hr>
       <Itinerary />
       <hr></hr>
-      <Map />
       <Galery />
       <hr></hr>
     </div>

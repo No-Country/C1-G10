@@ -8,10 +8,6 @@ export const TourCards = ({ packages }) => {
     router.push(`/detailTours?id=${id}`);
   };
 
-  useEffect(() => {
-    console.log("Hola");
-  });
-
   return (
     <div className={styles["cards-container"]}>
       {packages ? (

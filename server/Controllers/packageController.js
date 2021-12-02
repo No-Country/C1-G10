@@ -1,5 +1,4 @@
 const Package = require("../Models/Package");
-const Images = require("../Models/Images");
 const Destination = require("../Models/TravelInfo/Destination");
 const Category = require("../Models/TravelInfo/Category");
 const Type = require("../Models/TravelInfo/Type");

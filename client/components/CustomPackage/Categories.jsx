@@ -11,6 +11,7 @@ export const Categories = ({ setCategory }) => {
 
   useEffect(() => {
     dispatch(getAllCategories());
+    console.log("here");
   }, []);
 
   useEffect(() => {

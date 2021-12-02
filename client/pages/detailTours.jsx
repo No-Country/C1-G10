@@ -1,11 +1,11 @@
 import Head from "next/head";
-import {Galery} from "../components/DetailsTours/Galery";
-import {Itinerary} from "../components/DetailsTours/Itinerary";
-import {Nav} from "../components/DetailsTours/Nav";
-import {Items} from "../components/DetailsTours/Items"
-import {Map} from "../components/Map/Map"
+import { Galery } from "../components/DetailsTours/Galery";
+import { Itinerary } from "../components/DetailsTours/Itinerary";
+import { Nav } from "../components/DetailsTours/Nav";
+import { Items } from "../components/DetailsTours/Items";
+import { Map } from "../components/Map/Map";
 import Image from "next/image";
-import styles from "../styles/detailsTours/DetailTours.module.scss"
+import styles from "../styles/detailsTours/DetailTours.module.scss";
 
 export default function DetailTours() {
   return (
@@ -27,14 +27,14 @@ export default function DetailTours() {
         layout="responsive"
         src="/images/detailTour.jpg"
       />
-      <Items/>
-       <Nav/>
-        <hr></hr>
-         <Itinerary />
-        <hr></hr>
-        <Map/>
-        <Galery />
-        <hr></hr>
+      <Items />
+      <Nav />
+      <hr></hr>
+      <Itinerary />
+      <hr></hr>
+      <Map />
+      <Galery />
+      <hr></hr>
     </div>
   );
 }

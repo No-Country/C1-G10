@@ -1,7 +1,17 @@
 import Image from "next/image";
 import styles from "../../styles/tours/TourCards.module.scss";
+import router from "next/router";
+import { useEffect } from "react";
 
 export const TourCards = ({ packages }) => {
+  const goToPackage = (id) => {
+    router.push(`/detailTours?id=${id}`);
+  };
+
+  useEffect(() => {
+    console.log("Hola");
+  });
+
   return (
     <div className={styles["cards-container"]}>
       {packages ? (
@@ -17,7 +27,11 @@ export const TourCards = ({ packages }) => {
             category,
           } = card;
           return (
-            <div key={index} className={styles.cards}>
+            <div
+              key={index}
+              className={styles.cards}
+              onClick={() => goToPackage(card._id)}
+            >
               <Image
                 src={images[0]}
                 layout="responsive"

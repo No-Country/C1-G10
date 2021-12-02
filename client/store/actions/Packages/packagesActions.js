@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 const url = "http://localhost:5002";
 
 /* GET ALL PACKAGES */
@@ -26,7 +26,6 @@ export const filterPackages = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (err) {
       return err;

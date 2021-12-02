@@ -1,17 +1,7 @@
 import Image from "next/image";
 import styles from "../../styles/tours/TourCards.module.scss";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllPackages } from "../../store/actions/Packages/packagesActions";
 
-export const TourCard = () => {
-  const dispatch = useDispatch();
-  const [packages] = useSelector((state) => state.packages);
-
-  useEffect(() => {
-    dispatch(getAllPackages());
-  }, [dispatch]);
-
+export const TourCards = ({ packages }) => {
   return (
     <div className={styles["cards-container"]}>
       {packages &&

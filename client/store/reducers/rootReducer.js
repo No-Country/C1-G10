@@ -27,6 +27,7 @@ const rootReducer = createReducer(initialState, (builder) => {
   builder.addCase(filterPackages.fulfilled, (state, action) => {
     state.packages.push(action.payload);
   });
+
   /*                      TYPES                    */
   /* ALL TYPES */
   builder.addCase(getAllTypes.fulfilled, (state, action) => {

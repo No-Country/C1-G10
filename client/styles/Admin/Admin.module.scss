@@ -1,0 +1,17 @@
+.container {
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+
+  div {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+
+.package {
+  display: flex;
+  justify-content: center;
+}

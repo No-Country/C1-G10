@@ -4,7 +4,7 @@ import styles from "../../styles/tours/TourCards.module.scss";
 export const TourCards = ({ packages }) => {
   return (
     <div className={styles["cards-container"]}>
-      {packages &&
+      {packages ? (
         packages.map((card, index) => {
           const {
             packageName,
@@ -35,7 +35,10 @@ export const TourCards = ({ packages }) => {
               </div>
             </div>
           );
-        })}
+        })
+      ) : (
+        <div>Nothing to see here </div>
+      )}
     </div>
   );
 };

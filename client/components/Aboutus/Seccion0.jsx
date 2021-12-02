@@ -4,10 +4,11 @@ const Seccion0 = () => (
   <div>
     <div className={styles.Seccion0conteiner}>
       <Image
-        width={1920}
-        height={500}
+        className="img-fluid"
+        width={1769}
+        height={475}
         layout="responsive"
-        src="/images/Pexelss.jpg"
+        src="/images/ppp.jpg"
       />
 
       <h1 className="textosobreimagen">SOBRE NOSOTROS</h1>

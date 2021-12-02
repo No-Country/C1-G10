@@ -17,7 +17,7 @@ const Seccion2 = () => (
       </a>
       <a href="https://www.linkedin.com/in/spardutti/">
         <img src="/images/Luis.jpg" />
-        <p>Damian Spardutti</p>
+        <p>Damian Spagnuolo</p>
       </a>
     </div>
   </div>

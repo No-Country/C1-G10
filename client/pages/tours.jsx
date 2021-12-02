@@ -1,18 +1,30 @@
-import { TourCard } from "../components/Tours/TourCards";
+import { TourCards } from "../components/Tours/TourCards";
 import { FilterContainer } from "../components/Tours/FilterContainer";
 import styles from "../styles/tours/ToursInformation.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllPackages } from "../store/actions/Packages/packagesActions";
 
 export default function Tours() {
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const [packagesStore] = useSelector((state) => state.packages);
+  const [packages, setPackages] = useState();
+
+  useEffect(() => {
+    dispatch(getAllPackages());
+  }, []);
+
+  useEffect(() => {
+    setPackages(packagesStore);
+  }, [packagesStore]);
 
   return (
     <div>
       <div className={styles.imageContainer}>
         <Image
           width={1920}
-          height={500}
+          height={800}
           layout="responsive"
           src="/images/snowy-mountain.jpg"
         />
@@ -31,10 +43,10 @@ export default function Tours() {
       </div>
       <div className={styles.container}>
         <div>
-          <FilterContainer />
+          <FilterContainer setPackages={setPackages} />
         </div>
         <div className={styles.card}>
-          <TourCard />
+          <TourCards packages={packages} />
         </div>
       </div>
       <script

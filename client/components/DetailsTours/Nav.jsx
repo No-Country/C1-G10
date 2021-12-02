@@ -3,12 +3,15 @@ import styles from '../../styles/DetailsTours/Nav.module.scss'
 export const Nav = () => {
   return (
     <div>
+     
       <nav>
         {/* <a class="navbar-brand" href="#">
           Navbar
         </a> */}
+         <section className={styles.order}>
         <nav class="nav nav-pills flex-column">
           <a className={styles.text}  class="nav-link" href="#Overview">
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -119,7 +122,9 @@ export const Nav = () => {
           </nav>
         </nav>
       </nav>
-      <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+      </section>
+      <section>
+      <div className={styles.order} data-spy="scroll" data-target="#navbar-example3" data-offset="0">
         <h4 className={styles.options}  id="Overview">Overview</h4>
         <p>...</p>
         <h5 className={styles.options} id="Why we love this trip?">Why we love this trip?</h5>
@@ -134,8 +139,10 @@ export const Nav = () => {
         <p>...</p>
         <h5 className={styles.options} id="Gallery">Gallery</h5>
         <p>...</p>
-      </div>
+      </div> 
+      </section>
       </nav>
     </div>
+   
   );
 };

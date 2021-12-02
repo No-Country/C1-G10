@@ -9,12 +9,14 @@
 }
 
 .options{
-
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     padding: 10px;
     display: flex;
     width: 800;
     height: 300;
-        // layout: responsive;
+}
+
+.order{
+    display: grid;
 }

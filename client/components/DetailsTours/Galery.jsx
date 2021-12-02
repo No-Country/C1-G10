@@ -1,4 +1,4 @@
-const Galery = () => {
+export const Galery = () => {
   return (
     <div
       id="carouselExampleControls"

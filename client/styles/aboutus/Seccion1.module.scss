@@ -1,5 +1,6 @@
 .Seccion0conteiner {
   position: relative;
+  width: 100%;
 
   h1 {
     position: absolute;
@@ -22,5 +23,21 @@
   p {
     color: white;
     font-family: sans-serif;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Seccion0conteiner {
+    h1 {
+      bottom: 0px;
+      font-size: 15px;
+    }
+  }
+  .parrafo {
+    p {
+      font-size: 13px;
+    }
+    img {
+      width: 100px;
+    }
   }
 }

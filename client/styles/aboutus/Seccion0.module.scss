@@ -1,15 +1,28 @@
 .Seccion0conteiner {
   position: relative;
   text-align: center;
+  background-image: url("https://www.argentina.gob.ar/sites/default/files/2021/04/se-busca-analista-programador-si-fichan-a-tu-recomendado-te-llevas-2-000-euros.jpg");
 
   h1 {
     position: absolute;
     color: white;
     left: 50px;
-    bottom: 0;
+    bottom: 20px;
   }
 }
 .parrafo {
   text-align: center;
   font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+  .Seccion0conteiner {
+    h1 {
+      font-size: 15px;
+      left: 10px;
+      bottom: 0px;
+    }
+  }
+  .parrafo {
+    font-size: 13px;
+  }
 }

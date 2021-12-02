@@ -107,10 +107,36 @@ exports.updatePackage = async (req, res, next) => {
 //gived and return an array of matching packages.
 exports.packageFilter = async (req, res, next) => {
   try {
-    const package = await Package.find({
-      [req.query.searchingKey]: req.query.value,
-    });
-    res.json(package);
+    const { searchingKey, value } = req.query;
+    console.log(searchingKey, value);
+    if (searchingKey === "totalDays") {
+      if (value === "1-5") {
+        const package = await Package.find({
+          [searchingKey]: { $lte: 5, $gte: 1 },
+        });
+        res.json(package);
+      } else if (value === "6-10") {
+        const package = await Package.find({
+          [searchingKey]: { $gte: 6, $lte: 10 },
+        });
+        res.json(package);
+      } else if (value === "11-15") {
+        const package = await Package.find({
+          [searchingKey]: { $lte: 15, $gte: 11 },
+        });
+        res.json(package);
+      } else {
+        const package = await Package.find({
+          [searchingKey]: { $gte: 16 },
+        });
+        res.json(package);
+      }
+    } else {
+      const package = await Package.find({
+        [searchingKey]: value,
+      });
+      res.json(package);
+    }
   } catch (err) {
     res.json(next(err));
   }

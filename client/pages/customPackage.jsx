@@ -7,8 +7,7 @@ import { Members } from "../components/CustomPackage/Members";
 import { PackageDetails } from "../components/CustomPackage/PackageDetails";
 import { PackageDate } from "../components/CustomPackage/PackageDate";
 import { PackageNav } from "../components/CustomPackage/PackageNav";
-import styles from "../styles/CustomPackage/customPackage.module.scss";
-
+import styles from "../styles/CustomPackage/CustomPackage.module.scss";
 const CustomPackage = () => {
   const [destination, setDestination] = useState();
   const [type, setType] = useState();

@@ -1,4 +1,4 @@
-import styles from "../../styles/DetailsTours/Nav.module.scss";
+import styles from "../../styles/detailsTours/Nav.module.scss";
 
 export const Nav = () => {
   return (

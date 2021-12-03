@@ -1,0 +1,13 @@
+.Footer {
+  background-color: rgb(37, 61, 70);
+  text-align: center;
+  color: white;
+  padding: 0px;
+}
+@media screen and (max-width: 480px) {
+  .Footer {
+    p {
+      font-size: 12px;
+    }
+  }
+}

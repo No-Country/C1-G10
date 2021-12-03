@@ -1,0 +1,38 @@
+.container {
+  animation: show 0.1s;
+  font-size: 1.5rem;
+  transition: 0.3s all;
+
+  p {
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+    margin: 0;
+
+    &:hover {
+      transform: scale(1.7);
+    }
+  }
+}
+
+@keyframes show {
+  from {
+    font-size: 0;
+  }
+
+  to {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    font-size: 0.7rem;
+  }
+}

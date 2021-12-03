@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap");
+
+.container {
+  text-align: center;
+  padding: 4rem;
+  .titleB {
+    font-family: "Merienda", cursive;
+    font-size: 2.5rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 1rem;
+
+  .trips {
+    width: 90%;
+    height: 90%;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      div {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.map {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+}
+
+@media (max-width: 991.98px) {
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    .titleB {
+      font-size: 2rem;
+    }
+  }
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    padding: 1rem;
+
+    .titleB {
+      font-size: 1.5rem;
+    }
+  }
+
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

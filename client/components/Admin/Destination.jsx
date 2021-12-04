@@ -7,6 +7,7 @@ export const Destination = () => {
         <input type="text" name="" id="" required />
         <label htmlFor="">Create a new Destination</label>
       </div>
+      <button>Create</button>
     </div>
   );
 };

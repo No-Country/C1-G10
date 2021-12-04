@@ -47,19 +47,14 @@ const Navbar = () => (
                 </a>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/contactus">
-                <a className="nav-link active" aria-current="page" href="">
-                  Contact us
-                </a>
-              </Link>
-            </li>
           </ul>
-          {/* <form className="d-flex">
-            <button className="btn btn-outline-success" type="submit">
-              Start planning here
-            </button>
-          </form> */}
+          <form className="d-flex">
+            <Link href="/customPackage">
+              <button className="btn btn-outline-success" type="submit">
+                Custom Package
+              </button>
+            </Link>
+          </form>
         </div>
       </div>
     </nav>

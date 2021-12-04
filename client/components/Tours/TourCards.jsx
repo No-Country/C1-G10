@@ -1,20 +1,16 @@
 import Image from "next/image";
 import styles from "../../styles/tours/TourCards.module.scss";
+import router from "next/router";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllPackages } from "../../store/actions/Packages/packagesActions";
 
-export const TourCard = () => {
-  const dispatch = useDispatch();
-  const [packages] = useSelector((state) => state.packages);
-
-  useEffect(() => {
-    dispatch(getAllPackages());
-  }, [dispatch]);
+export const TourCards = ({ packages }) => {
+  const goToPackage = (id) => {
+    router.push(`/detailTours?id=${id}`);
+  };
 
   return (
     <div className={styles["cards-container"]}>
-      {packages &&
+      {packages ? (
         packages.map((card, index) => {
           const {
             packageName,
@@ -27,7 +23,11 @@ export const TourCard = () => {
             category,
           } = card;
           return (
-            <div key={index} className={styles.cards}>
+            <div
+              key={index}
+              className={styles.cards}
+              onClick={() => goToPackage(card._id)}
+            >
               <Image
                 src={images[0]}
                 layout="responsive"
@@ -45,7 +45,10 @@ export const TourCard = () => {
               </div>
             </div>
           );
-        })}
+        })
+      ) : (
+        <div>Nothing to see here </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .hola {
   background-image: url("https://www.roldan.gov.ar/uploads/2021/04/master-desarrollo-web-full-stack-MDF-grande.jpg");
-
+  background-size: cover;
   text-align: center;
   color: white;
   font-weight: bold;
@@ -14,5 +14,34 @@
     height: 200px;
     border-radius: 50%;
     padding: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hola {
+    .container {
+      img {
+        height: 100px;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hola {
+    p {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    .container {
+      img {
+      }
+
+      a {
+        width: 200px;
+      }
+    }
   }
 }

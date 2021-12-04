@@ -3,6 +3,9 @@
 
   padding: 30px 30px;
   background-color: rgb(37, 61, 70);
+  hr {
+    color: red;
+  }
   h1 {
     font-size: 30px;
     margin-top: 10px;
@@ -11,5 +14,16 @@
 
   a {
     margin: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Seccion6 {
+    h1 {
+      font-size: 20px;
+    }
+    img {
+      height: 30px;
+      width: auto;
+    }
   }
 }

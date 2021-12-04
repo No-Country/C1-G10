@@ -8,7 +8,7 @@ const Seccion2 = () => (
       <a href="https://www.linkedin.com/in/andreasolariroa/">
         <img src="/images/andrea.jpg" />
         <div className={styles.capa}>
-          <p>Andrea</p>
+          <p>Andrea Solari</p>
         </div>
       </a>
       <a href="https://www.linkedin.com/in/maximiliano-ruano/">
@@ -17,7 +17,7 @@ const Seccion2 = () => (
       </a>
       <a href="https://www.linkedin.com/in/spardutti/">
         <img src="/images/Luis.jpg" />
-        <p>Damian Spardutti</p>
+        <p>Damian Spagnuolo</p>
       </a>
     </div>
   </div>

@@ -1,13 +1,26 @@
 import Head from "next/head";
-import {Galery} from "../components/DetailsTours/Galery";
-import {Itinerary} from "../components/DetailsTours/Itinerary";
-import {Nav} from "../components/DetailsTours/Nav";
-import {Items} from "../components/DetailsTours/Items"
-// import {Map} from "../components/Map/Map"
-import Image from "next/image";
-import styles from "../styles/detailsTours/DetailTours.module.scss"
+import { Gallery } from "../components/DetailsTours/Gallery";
+import { Itinerary } from "../components/DetailsTours/Itinerary";
+import { NavBar } from "../components/DetailsTours/Nav";
+import { Items } from "../components/DetailsTours/Items";
+// import {Images} from "../components/DetailsTours/Images";
+import styles from "../styles/detailsTours/DetailTours.module.scss";
+// import { useParams } from "react-router"
+import { useDispatch, useSelector } from "react-redux";
+import { getAllDetails } from "../store/actions/DetailTours/detailActions";
+import { useEffect } from "react"
 
 export default function DetailTours() {
+  // const { id } = useParams()
+  const dispatch = useDispatch();
+
+    useEffect((id) => {
+    dispatch(getAllDetails(id))
+  }, []);
+
+  const [details] = useSelector((state) => state.details);
+ console.log(details)
+
   return (
     <div>
       <Head>
@@ -21,20 +34,28 @@ export default function DetailTours() {
           crossOrigin="anonymous"
         ></link>
       </Head>
-      <Image
-        width={700}
-        height={300}
-        layout="responsive"
-        src="/images/detailTour.jpg"
-      />
-      <Items/>
-       <Nav/>
-        <hr></hr>
-         <Itinerary />
-        <hr></hr>
-
-        <Galery />
-        <hr></hr>
+      <div>
+        <div>{details?.packageName}</div>
+        <section>
+          <div>
+           {/* <Images/>  */}
+          </div>
+          <div>
+             {/* <Items/> */}
+          </div>
+        </section>
+          
+        
+      </div>
+      
+      
+     
+      <NavBar />
+      <hr></hr>
+      <Itinerary />
+      <hr></hr>
+      <Gallery />
+      <hr></hr>
     </div>
   );
 }

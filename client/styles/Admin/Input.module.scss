@@ -1,13 +1,18 @@
 .form {
   width: 40rem;
-  padding: 0 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 1rem;
   font-size: 1rem;
   border: 1px solid black;
   margin-top: 5rem;
+
+  h3 {
+    padding-bottom: 1rem;
+  }
+
   .input-container {
     position: relative;
-    padding: 2.5rem 0;
+    padding: 1rem 0;
     margin: 0 auto;
 
     &:first-child {
@@ -20,12 +25,12 @@
       border: none;
       border-bottom: 0.1rem solid black;
       outline: none;
-      font-size: 2rem;
+      font-size: 1rem;
 
       &:focus + label,
       &:valid + label,
       &:hover + label {
-        transform: translateY(-2.5rem);
+        transform: translateY(-2rem);
         transition: all 0.3s;
         color: black;
       }
@@ -34,7 +39,7 @@
     label {
       position: absolute;
       left: 0%;
-      bottom: 3rem;
+      bottom: 1rem;
       transition: all 0.3s;
 
       &:first-child {
@@ -42,7 +47,7 @@
       }
 
       &:hover {
-        transform: translateY(-2.5rem);
+        transform: translateY(-2rem);
       }
     }
   }
@@ -56,6 +61,7 @@
     background-color: black;
     color: white;
     transition: 0.3s all;
+    margin-top: 1rem;
 
     &:hover {
       transform: scale(1.1);

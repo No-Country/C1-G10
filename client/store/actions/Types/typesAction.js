@@ -11,3 +11,21 @@ export const getAllTypes = createAsyncThunk("GET_TYPES", async () => {
     return err;
   }
 });
+
+export const newType = createAsyncThunk("type/newType", async (payload) => {
+  try {
+    let formData = new FormData();
+    const [type, image] = payload;
+    formData.append("typeName", type);
+    formData.append("image", image);
+
+    const response = await fetch(`${url}/newTypeModel`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+});

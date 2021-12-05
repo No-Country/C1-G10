@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { newDestination } from "../actions/Destiantions/destinationsActions";
+import {
+  newDestination,
+  getAllDestinations,
+} from "../actions/Destiantions/destinationsActions";
 
 const initialState = [];
 
@@ -8,12 +11,13 @@ const destinationSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(newDestination.pending, (state, action) => {
-      console.log(action);
-    }),
-      builder.addCase(newDestination.fulfilled, (state, action) => {
-        state.destination.push(action.payload);
-      });
+    builder.addCase(newDestination.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
+    /* ALL DESTINATIONS */
+    builder.addCase(getAllDestinations.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
   },
 });
 

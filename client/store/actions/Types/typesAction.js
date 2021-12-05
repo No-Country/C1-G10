@@ -26,6 +26,6 @@ export const newType = createAsyncThunk("type/newType", async (payload) => {
     const data = await response.json();
     return data;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 });

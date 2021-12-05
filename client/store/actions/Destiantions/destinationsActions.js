@@ -17,7 +17,17 @@ export const newDestination = createAsyncThunk(
       const data = await response.json();
       return data;
     } catch (err) {
-      console.log(err);
+      return err;
     }
+  }
+);
+
+/* GET ALL DESTINATIONS */
+export const getAllDestinations = createAsyncThunk(
+  "GET_DESTINATIONS",
+  async () => {
+    const response = await fetch(`${url}/getAllDestinations`);
+    const data = await response.json();
+    return data;
   }
 );

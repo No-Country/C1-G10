@@ -33,12 +33,4 @@ export const filterPackages = createAsyncThunk(
   }
 );
 
-/* GET ALL DESTINATIONS */
-export const getAllDestinations = createAsyncThunk(
-  "GET_DESTINATIONS",
-  async () => {
-    const response = await fetch(`${url}/getAllDestinations`);
-    const data = await response.json();
-    return data;
-  }
-);
+// TODO ORGANIZE ROOT REDUCER IN SPECIFIC FOLDERS

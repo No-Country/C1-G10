@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllCategories } from "../actions/Category/categoryAction";
+import {
+  getAllCategories,
+  newCategory,
+} from "../actions/Category/categoryAction";
 
 const initialState = [];
 
@@ -9,6 +12,9 @@ const categorySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAllCategories.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
+    builder.addCase(newCategory.fulfilled, (state, action) => {
       state.push(action.payload);
     });
   },

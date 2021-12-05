@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getAllPackages,
   filterPackages,
+  newPackage,
 } from "../actions/Packages/packagesActions";
 
 const initialState = [];
@@ -15,8 +16,11 @@ const packageSlice = createSlice({
       state.push(action.payload);
     });
 
-    /* FILTERED PACKAGES */
     builder.addCase(filterPackages.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
+
+    builder.addCase(newPackage, (state, action) => {
       state.push(action.payload);
     });
   },

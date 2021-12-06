@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDestinations } from "../../store/actions/Packages/packagesActions";
+import { getAllDestinations } from "../../store/actions/Destiantions/destinationsActions";
 import { Cards } from "../CustomPackage/Cards";
 
 export const Trips = ({ setPosition, map, setDestination }) => {

@@ -11,3 +11,20 @@ export const getAllCategories = createAsyncThunk("GET_CATEGORY", async () => {
     return err;
   }
 });
+
+export const newCategory = createAsyncThunk("category/new", async (payload) => {
+  try {
+    const [categoryName] = payload;
+    const response = await fetch(`${url}/newcategoryModel`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        categoryName,
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    return err;
+  }
+});

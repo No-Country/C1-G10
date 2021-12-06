@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "../../styles/tours/TourCards.module.scss";
 import router from "next/router";
-import { useEffect } from "react";
 
 export const TourCards = ({ packages }) => {
   const goToPackage = (id) => {
@@ -34,6 +33,7 @@ export const TourCards = ({ packages }) => {
                 width={10}
                 height={4}
                 objectFit="cover"
+                alt="package img"
               />
               <div className={styles["card-info"]}>
                 <p>{type.typeName}</p>

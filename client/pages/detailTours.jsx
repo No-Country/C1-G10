@@ -3,23 +3,23 @@ import { Gallery } from "../components/DetailsTours/Gallery";
 import { Itinerary } from "../components/DetailsTours/Itinerary";
 import { NavBar } from "../components/DetailsTours/Nav";
 import { Items } from "../components/DetailsTours/Items";
-// import {Images} from "../components/DetailsTours/Images";
+import Images from "../components/DetailsTours/Images";
 import styles from "../styles/detailsTours/DetailTours.module.scss";
-// import { useParams } from "react-router"
+import { useParams } from "react-router"
 import { useDispatch, useSelector } from "react-redux";
 import { getAllDetails } from "../store/actions/DetailTours/detailActions";
 import { useEffect } from "react"
 
 export default function DetailTours() {
-  // const { id } = useParams()
+  const { id } = useParams()
   const dispatch = useDispatch();
 
-    useEffect((id) => {
-    dispatch(getAllDetails(id))
+    useEffect(() => {
+    dispatch(getAllDetails())
   }, []);
 
   const [details] = useSelector((state) => state.details);
- console.log(details)
+
 
   return (
     <div>
@@ -35,27 +35,18 @@ export default function DetailTours() {
         ></link>
       </Head>
       <div>
-        <div>{details?.packageName}</div>
+        {/* <div>{details?.packageName}</div> */}
         <section>
-          <div>
-           {/* <Images/>  */}
-          </div>
-          <div>
-             {/* <Items/> */}
-          </div>
+          
+           <Images/> 
+             <Items/>
+      
         </section>
           
         
       </div>
-      
-      
-     
       <NavBar />
-      <hr></hr>
-      <Itinerary />
-      <hr></hr>
-      <Gallery />
-      <hr></hr>
+  
     </div>
   );
 }

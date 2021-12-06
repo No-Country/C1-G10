@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Accordion, AccordionItem, AccordionHeader } from "reactstrap";
 
+
 export const Itinerary = () => {
   return (
     <div>

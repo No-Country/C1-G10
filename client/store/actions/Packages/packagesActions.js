@@ -71,3 +71,18 @@ export const newPackage = createAsyncThunk(
     }
   }
 );
+
+export const getPackageById = createAsyncThunk(
+  "GET_PACKAGEID",
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
+    try {
+      const response = await fetch(`${url}/getAPackage/${payload}`);
+      if (!response.ok) return rejectWithValue(500);
+      const data = await response.json();
+
+      return fulfillWithValue(data);
+    } catch (err) {
+      return err;
+    }
+  }
+);

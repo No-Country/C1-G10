@@ -14,6 +14,72 @@
   text-align: center;
   font-weight: bold;
 }
+
+@media screen and(max-width:1px) {
+  .Seccion0conteiner {
+    h1 {
+      left: 10px;
+      bottom: 0;
+      font-size: 30px;
+    }
+  }
+  .parrafo {
+    font-size: 16px;
+  }
+}
+
+@media screen and(max-width:1500px) {
+  .Seccion0conteiner {
+    h1 {
+      left: 10px;
+      bottom: 0;
+      font-size: 50px;
+    }
+  }
+  .parrafo {
+    font-size: 23px;
+  }
+}
+
+@media screen and(max-width:1200px) {
+  .Seccion0conteiner {
+    h1 {
+      left: 10px;
+      bottom: 0;
+      font-size: 40px;
+    }
+  }
+  .parrafo {
+    font-size: 18px;
+  }
+}
+
+@media screen and(max-width:1024px) {
+  .Seccion0conteiner {
+    h1 {
+      left: 10px;
+      bottom: 0;
+      font-size: 30px;
+    }
+  }
+  .parrafo {
+    font-size: 16px;
+  }
+}
+
+@media screen and(max-width:768px) {
+  .Seccion0conteiner {
+    h1 {
+      left: 10px;
+      bottom: 0;
+      font-size: 25px;
+    }
+  }
+  .parrafo {
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .Seccion0conteiner {
     h1 {

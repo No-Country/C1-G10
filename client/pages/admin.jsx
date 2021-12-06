@@ -4,7 +4,18 @@ import { Category } from "../components/Admin/Category";
 import { Package } from "../components/Admin/Package";
 import styles from "../styles/Admin/Admin.module.scss";
 
-export default function Admin() {
+import { getSession } from 'next-auth/client'; //for user authentication (next-auth)
+
+export default function Admin({ user }) {
+
+  if ((user === undefined) || (user.email !== "travellifetouroperator@gmail.com")) {
+    return (
+      <>
+        <p>You are not authorized to access this page.</p>
+      </>
+    )
+  }
+
   return (
     <div className={styles.container}>
       <h1>Admin Panel</h1>
@@ -19,3 +30,20 @@ export default function Admin() {
     </div>
   );
 }
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    // context.res.writeHead(302, { Location: '/' });
+    // context.res.end();
+    return {
+      props: {}
+    };
+  }
+  return {
+    props: {
+      user: session.user,
+    },
+  };
+}
+

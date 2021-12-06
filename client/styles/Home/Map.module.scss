@@ -3,14 +3,9 @@
 .container {
   text-align: center;
   padding: 4rem;
-
   .titleB {
     font-family: "Merienda", cursive;
     font-size: 2.5rem;
-  }
-  .btn {
-    font-family: "Merienda", cursive;
-    font-size: 1rem;
   }
 }
 
@@ -18,7 +13,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 1rem;
-  height: 500px;
 
   .trips {
     width: 90%;
@@ -38,6 +32,67 @@
 
 .map {
   width: 90%;
-  height: 90%;
+  height: 400px;
   margin: 0 auto;
+}
+
+@media (max-width: 991.98px) {
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    .titleB {
+      font-size: 2rem;
+    }
+  }
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    padding: 1rem;
+
+    .titleB {
+      font-size: 1.5rem;
+    }
+  }
+
+  .grid {
+    margin: 0;
+
+    .trips {
+      width: 100%;
+
+      div {
+        div {
+          width: 90%;
+        }
+      }
+    }
+  }
 }

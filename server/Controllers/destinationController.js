@@ -1,4 +1,5 @@
 const Destination = require("../Models/TravelInfo/Destination");
+const Package = require("../Models/Package");
 
 /* CREATE A NEW DESTINATION MODEL */
 
@@ -30,6 +31,20 @@ exports.getAllDestinations = async (req, res, next) => {
   try {
     const destination = await Destination.find({});
     return res.json(destination);
+  } catch (err) {
+    res.json(next(err));
+  }
+};
+
+/* DELETE A DESTINATION */
+
+exports.deleteADestination = async (req, res, next) => {
+  try {
+    const destinations = await Destination.findByIdAndDelete(req.params.id);
+    const destinationId = destinations._id;
+    await Package.deleteMany({ destination: destinationId });
+
+    res.json(destinations);
   } catch (err) {
     res.json(next(err));
   }

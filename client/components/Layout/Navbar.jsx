@@ -1,10 +1,14 @@
 import Link from "next/link";
 
-const Navbar = () => (
+import { signIn, signOut, useSession } from 'next-auth/client';  //for user authentication (next-auth)
+
+const Navbar = () => {
+  const [session, loadingSession] = useSession();  //for user authentication (next-auth)
+  return (
   <div>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="index">
+        <a className="navbar-brand" href="/">
           <img
             src="https://cdn-icons-png.flaticon.com/512/744/744502.png"
             alt="logo viaje"
@@ -48,17 +52,36 @@ const Navbar = () => (
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
-            <Link href="/customPackage">
-              <button className="btn btn-outline-success" type="submit">
-                Custom Package
-              </button>
-            </Link>
-          </form>
+          {
+            session
+              ? <>
+                  {
+                   session.user.email === "travellifetouroperator@gmail.com"
+                   ?
+                   <Link href="/admin">
+                   <button className="btn btn-outline-success" type="submit">
+                    Admin
+                   </button>
+                   </Link>
+                  :
+                  <form className="d-flex">
+                    <Link href="/customPackage">
+                      <button className="btn btn-outline-success" type="submit">
+                        Custom Package
+                      </button>
+                    </Link>
+                  </form>
+                  }
+                  ({session.user.name})
+                  <button onClick={() => signOut()}>Sign Out</button>
+                </>
+              : <button style={{border: 0, background: "transparent"}} onClick={() => signIn()}>Sign In</button>
+          }
         </div>
       </div>
     </nav>
   </div>
 );
+  }
 
 export default Navbar;

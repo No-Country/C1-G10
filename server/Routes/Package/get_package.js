@@ -8,6 +8,6 @@ router.get("/getAllPackages", packageController.getAllPackages);
 router.get("/getAPackage/:id", packageController.getPackageById);
 
 /* GET FILTERED PACKAGES */
-router.get("/getFilteredPackages", packageController.packageFilter);
+router.get("/getFilteredPackages/", packageController.packageFilter);
 
 module.exports = router;

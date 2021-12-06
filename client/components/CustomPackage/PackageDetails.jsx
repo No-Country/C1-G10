@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "../../styles/CustomPackage/DetailsTable.module.scss";
 import Router from "next/router";
 
+import { signOut } from 'next-auth/client';  //for user authentication (next-auth)
+
 export const PackageDetails = ({
   destination,
   member,
@@ -11,12 +13,14 @@ export const PackageDetails = ({
   price,
   date,
   resetState,
+  user
 }) => {
   const [loading, setLoading] = useState(false);
 
   // SEND INFORMATION AND REDIRECT
   const contactUs = () => {
     setLoading(!loading);
+
     setTimeout(() => {
       setLoading(false);
       resetState();
@@ -75,9 +79,26 @@ export const PackageDetails = ({
           </tr>
         </tbody>
       </table>
-      <p onClick={contactUs} className={styles.contact}>
-        Contact us
-      </p>
+
+            <p>You are logged as: {user.name}</p>
+            <div>
+              <p>Email: {user.email}</p>
+              <br />
+              {user.image && (
+                <span>
+                  <img src={user.image} alt={user.name} />
+                </span>
+              )}
+            </div>
+            <br />
+            <br />
+            <button onClick={() => signOut()}>
+              Sign Out
+            </button>
+            <p onClick={contactUs} className={styles.contact}>Contact us</p> 
+
     </div>
   );
 };
+
+

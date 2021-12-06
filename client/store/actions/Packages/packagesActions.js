@@ -3,9 +3,13 @@ const url = "http://localhost:5002";
 
 /* GET ALL PACKAGES */
 export const getAllPackages = createAsyncThunk("GET_PACKAGES", async () => {
-  const response = await fetch(`${url}/getAllPackages`);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${url}/getAllPackages`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 });
 
 /* FILTER PACKAGES */
@@ -13,30 +17,53 @@ export const filterPackages = createAsyncThunk(
   "GET_FILTERED",
   async (payload) => {
     try {
-      const { searchingKey, value } = payload;
-      const response = await fetch(`${url}/getFilteredPackages`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          searchingKey,
-          value,
-        }),
-      });
+      const [searchingKey, value] = payload;
+      const response = await fetch(
+        `${url}/getFilteredPackages?searchingKey=${searchingKey}&value=${value}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (err) {
-      console.log(err);
+      return err;
     }
   }
 );
 
-/* GET ALL DESTINATIONS */
-export const getAllDestinations = createAsyncThunk(
-  "GET_DESTINATIONS",
-  async () => {
-    const response = await fetch(`${url}/getAllDestinations`);
+export const newPackage = createAsyncThunk("NEW_PACKAGE", async (payload) => {
+  try {
+    const [
+      destinationId,
+      categoryId,
+      typeId,
+      packageName,
+      description,
+      currency,
+      totalCost,
+      totalDays,
+      remainingSpots,
+    ] = payload;
+    const response = await fetch(`${url}/newPackage`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        destinationId,
+        categoryId,
+        typeId,
+        packageName,
+        description,
+        currency,
+        totalCost,
+        totalDays,
+        remainingSpots,
+      }),
+    });
     const data = await response.json();
     return data;
+  } catch (err) {
+    console.log(err);
   }
-);
+});

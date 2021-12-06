@@ -7,9 +7,11 @@ import { Members } from "../components/CustomPackage/Members";
 import { PackageDetails } from "../components/CustomPackage/PackageDetails";
 import { PackageDate } from "../components/CustomPackage/PackageDate";
 import { PackageNav } from "../components/CustomPackage/PackageNav";
-import styles from "../styles/CustomPackage/customPackage.module.scss";
+import styles from "../styles/CustomPackage/CustomPackage.module.scss";
 
-const CustomPackage = () => {
+import { getSession } from 'next-auth/client';  //for user authentication (next-auth)
+
+const CustomPackage = ({ user }) => {
   const [destination, setDestination] = useState();
   const [type, setType] = useState();
   const [category, setCategory] = useState();
@@ -36,9 +38,19 @@ const CustomPackage = () => {
     setPackageDate();
   };
 
+  if ((user === undefined) || (user.email === "travellifetouroperator@gmail.com")) {
+    return (
+      <>
+        <p>You are not authorized to access this page.</p>
+      </>
+    )
+  }
+
   return (
     <div className={styles.container}>
-      <h1>Plan your holidays with us</h1>
+      <div className={styles.title}>
+        <h1>Plan your holidays with us</h1>
+      </div>
       <div className={styles.options}>
         <PackageNav
           destination={destination}
@@ -94,7 +106,8 @@ const CustomPackage = () => {
                 category={category}
                 price={price}
                 date={packageDate}
-                resetState={resetState}
+                resetState={resetState} 
+                user={user}
               />
             )}
         </div>
@@ -109,3 +122,21 @@ const CustomPackage = () => {
 };
 
 export default CustomPackage;
+
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    // context.res.writeHead(302, { Location: '/' });
+    // context.res.end();
+    return {
+      props: {}
+    };
+  }
+  return {
+    props: {
+      user: session.user,
+    },
+  };
+}

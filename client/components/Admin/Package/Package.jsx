@@ -5,9 +5,12 @@ import { CategoryDropdown } from "./CategoryDropdown";
 import { useState } from "react";
 import { newPackage } from "../../../store/actions/Packages/packagesActions";
 import { useDispatch } from "react-redux";
+import Spinner from "../../Styled/Spinner";
 
 export const Package = () => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [destination, setDestination] = useState("");
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
@@ -28,10 +31,11 @@ export const Package = () => {
     });
   };
 
-  const creaetePackage = () => {
+  const creaetePackage = async () => {
+    setLoading(true);
     const { packageName, description, currency, totalCost, totalDays, spots } =
       state;
-    dispatch(
+    const response = await dispatch(
       newPackage([
         destination,
         category,
@@ -44,16 +48,47 @@ export const Package = () => {
         spots,
       ])
     );
+    if (response.payload === 500) {
+      setLoading(false);
+      return alert("Something went wrong");
+    }
+
+    alert("Package created");
+    setState({
+      destination: "",
+      category: "",
+      type: "",
+      packageName: "",
+      description: "",
+      currency: "",
+      totalCost: 0,
+      totalDays: 0,
+      spots: 0,
+    });
+    setDestination("");
+    setCategory("");
+    setType("");
+    setLoading(false);
+    setShow(false);
   };
 
-  return (
+  return !show ? (
+    <div onClick={() => setShow(true)}>
+      <h1 className={styles.drop}>Create Package</h1>
+    </div>
+  ) : (
     <div className={styles.form}>
-      <DestinationDropdown
-        setDestination={setDestination}
-        destination={destination}
-      />
-      <CategoryDropdown setCategory={setCategory} category={category} />
-      <TypeDropdown setType={setType} type={type} />
+      <h2 className={styles.drop} onClick={() => setShow(false)}>
+        Create Package
+      </h2>
+      <div className={styles.dropdown}>
+        <DestinationDropdown
+          setDestination={setDestination}
+          destination={destination}
+        />
+        <CategoryDropdown setCategory={setCategory} category={category} />
+        <TypeDropdown setType={setType} type={type} />
+      </div>
       <div className={styles["input-container"]}>
         <input
           type="text"
@@ -114,7 +149,7 @@ export const Package = () => {
         />
         <label htmlFor="">Remaining spots</label>
       </div>
-      <button onClick={creaetePackage}>Create</button>
+      {loading ? <Spinner /> : <button onClick={creaetePackage}>Create</button>}
     </div>
   );
 };

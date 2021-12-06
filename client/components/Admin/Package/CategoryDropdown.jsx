@@ -1,21 +1,28 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllCategories } from "../../../store/actions/Category/categoryAction";
+import styles from "../../../styles/Admin/Input.module.scss";
+import { useState } from "react";
 
 export const CategoryDropdown = ({ category, setCategory }) => {
-  const [categories] = useSelector((state) => state.categories);
+  const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCategories());
+    getCategories();
   }, []);
+
+  const getCategories = async () => {
+    const response = await dispatch(getAllCategories());
+    setCategories(response.payload);
+  };
 
   const getCategoryId = (e) => {
     setCategory(e.target.value);
   };
 
   return (
-    <div>
+    <div className={styles.dropdown}>
       <label htmlFor="">Category</label>
       <select value={category} onChange={getCategoryId}>
         <option value="" disabled>

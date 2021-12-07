@@ -4,6 +4,9 @@ import Router from "next/router";
 
 import { signOut } from 'next-auth/client';  //for user authentication (next-auth)
 
+import { postCustomPackage } from "../../store/actions/customPackage/customPackagesActions";
+import { useDispatch } from "react-redux";
+
 export const PackageDetails = ({
   destination,
   member,
@@ -15,12 +18,23 @@ export const PackageDetails = ({
   resetState,
   user
 }) => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
   // SEND INFORMATION AND REDIRECT
   const contactUs = () => {
+    const _data = {
+      clientName: user.name,
+      clientEmail: user.email, 
+      destination,
+      type,
+      category,
+      membersQuantity: member,
+      totalDays: day,
+      date, 
+    }
+    dispatch(postCustomPackage(_data));
     setLoading(!loading);
-
     setTimeout(() => {
       setLoading(false);
       resetState();

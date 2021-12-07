@@ -28,8 +28,6 @@ export default function Admin({ user }) {
       </div>
       <div className={styles.package}>
         <Package />
-      </div>
-      <div>
         <CustomPackage />
       </div>
       </div>

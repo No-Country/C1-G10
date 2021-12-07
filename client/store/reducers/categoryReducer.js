@@ -15,7 +15,7 @@ const categorySlice = createSlice({
       state.push(action.payload);
     });
     builder.addCase(newCategory.fulfilled, (state, action) => {
-      state.push(action.payload);
+      state = [...state, action.payload];
     });
   },
 });

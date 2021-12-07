@@ -1,23 +1,41 @@
 import Head from "next/head";
-import { Gallery } from "../components/DetailsTours/Gallery";
+import { Galery } from "../components/DetailsTours/Galery";
 import { Itinerary } from "../components/DetailsTours/Itinerary";
-import { NavBar } from "../components/DetailsTours/Nav";
+import { Nav } from "../components/DetailsTours/Nav";
 import { Items } from "../components/DetailsTours/Items";
-import Image from "../components/DetailsTours/Images";
+import Image from "next/image";
 import styles from "../styles/detailsTours/DetailTours.module.scss";
-import { useParams } from "react-router"
-import { useDispatch, useSelector } from "react-redux";
-import { getAllDetails } from "../store/actions/DetailTours/detailActions";
-import { useEffect } from "react"
+import { useState, useEffect } from "react";
+import { getPackageById } from "../store/actions/Packages/packagesActions";
+import { useDispatch } from "react-redux";
 
 export default function DetailTours() {
-  // const { id } = useParams()
-  const dispatch = useDispatch();
-  const details = useSelector((state) => state.details);
+  const [packageId, setPackageId] = useState("");
+  const [packageInfo, setPackageInfo] = useState("");
 
-    useEffect(() => {
-    dispatch(getAllDetails())
-  }, [dispatch]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const string = window.location.href;
+    const url = new URL(string);
+    const id = url.searchParams.get("id");
+    setPackageId(id);
+  }, []);
+
+  useEffect(() => {
+    getPackage();
+  }, [packageId]);
+
+  const getPackage = async () => {
+    if (packageId) {
+      const response = await dispatch(getPackageById(packageId));
+      if (response.payload === 500) {
+        alert("Package not found");
+      }
+      setPackageInfo(response.payload);
+      console.log(response.payload);
+    }
+  };
 
   return (
     <div>
@@ -32,19 +50,19 @@ export default function DetailTours() {
           crossOrigin="anonymous"
         ></link>
       </Head>
-      <div>
-        {/* <div>{details?.packageName}</div> */}
-        <section>
-          
-           <Image/> 
-             <Items/>
-      
-        </section>
-          
-        
-      </div>
-      <NavBar />
-  
+      <Image
+        width={700}
+        height={300}
+        layout="responsive"
+        src="/images/detailTour.jpg"
+      />
+      <Items packageInfo={packageInfo} />
+      <Nav />
+      <hr></hr>
+      <Itinerary />
+      <hr></hr>
+      <Galery />
+      <hr></hr>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const destinationSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(newDestination.fulfilled, (state, action) => {
-      state.push(action.payload);
+      state = [...state, action.payload];
     });
     /* ALL DESTINATIONS */
     builder.addCase(getAllDestinations.fulfilled, (state, action) => {

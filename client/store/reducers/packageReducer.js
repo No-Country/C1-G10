@@ -3,6 +3,7 @@ import {
   getAllPackages,
   filterPackages,
   newPackage,
+  getPackageById,
 } from "../actions/Packages/packagesActions";
 
 const initialState = [];
@@ -20,7 +21,10 @@ const packageSlice = createSlice({
       state.push(action.payload);
     });
 
-    builder.addCase(newPackage, (state, action) => {
+    builder.addCase(newPackage.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
+    builder.addCase(getPackageById.fulfilled, (state, action) => {
       state.push(action.payload);
     });
   },

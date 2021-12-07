@@ -8,7 +8,10 @@ import { PackageDetails } from "../components/CustomPackage/PackageDetails";
 import { PackageDate } from "../components/CustomPackage/PackageDate";
 import { PackageNav } from "../components/CustomPackage/PackageNav";
 import styles from "../styles/CustomPackage/CustomPackage.module.scss";
-const CustomPackage = () => {
+
+import { getSession } from 'next-auth/client';  //for user authentication (next-auth)
+
+const CustomPackage = ({ user }) => {
   const [destination, setDestination] = useState();
   const [type, setType] = useState();
   const [category, setCategory] = useState();
@@ -34,6 +37,14 @@ const CustomPackage = () => {
     setPrice();
     setPackageDate();
   };
+
+  if ((user === undefined) || (user.email === "travellifetouroperator@gmail.com")) {
+    return (
+      <>
+        <p>You are not authorized to access this page.</p>
+      </>
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -95,7 +106,8 @@ const CustomPackage = () => {
                 category={category}
                 price={price}
                 date={packageDate}
-                resetState={resetState}
+                resetState={resetState} 
+                user={user}
               />
             )}
         </div>
@@ -109,4 +121,26 @@ const CustomPackage = () => {
   );
 };
 
+<<<<<<< HEAD
 export default CustomPackage;
+=======
+export default CustomPackage;
+
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    // context.res.writeHead(302, { Location: '/' });
+    // context.res.end();
+    return {
+      props: {}
+    };
+  }
+  return {
+    props: {
+      user: session.user,
+    },
+  };
+}
+>>>>>>> 72c567750711d1a51fb8a6a3f4b0a182f88d456c

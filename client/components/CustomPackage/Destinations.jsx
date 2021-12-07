@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Cards } from "./Cards";
 import styles from "../../styles/CustomPackage/CardContainer.module.scss";
-import { getAllDestinations } from "../../store/actions/Packages/packagesActions";
+import { getAllDestinations } from "../../store/actions/Destiantions/destinationsActions";
 
 export const Destinations = ({ setDestination, setPrice }) => {
   const [destinations, setDestinations] = useState([]);

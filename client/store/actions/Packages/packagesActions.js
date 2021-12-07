@@ -33,23 +33,11 @@ export const filterPackages = createAsyncThunk(
   }
 );
 
-export const newPackage = createAsyncThunk("NEW_PACKAGE", async (payload) => {
-  try {
-    const [
-      destinationId,
-      categoryId,
-      typeId,
-      packageName,
-      description,
-      currency,
-      totalCost,
-      totalDays,
-      remainingSpots,
-    ] = payload;
-    const response = await fetch(`${url}/newPackage`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
+export const newPackage = createAsyncThunk(
+  "NEW_PACKAGE",
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
+    try {
+      const [
         destinationId,
         categoryId,
         typeId,
@@ -59,11 +47,42 @@ export const newPackage = createAsyncThunk("NEW_PACKAGE", async (payload) => {
         totalCost,
         totalDays,
         remainingSpots,
-      }),
-    });
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.log(err);
+      ] = payload;
+      const response = await fetch(`${url}/newPackage`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          destinationId,
+          categoryId,
+          typeId,
+          packageName,
+          description,
+          currency,
+          totalCost,
+          totalDays,
+          remainingSpots,
+        }),
+      });
+      if (!response.ok) return rejectWithValue(500);
+      const data = await response.json();
+      return fulfillWithValue(data);
+    } catch (err) {
+      return err;
+    }
   }
-});
+);
+
+export const getPackageById = createAsyncThunk(
+  "GET_PACKAGEID",
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
+    try {
+      const response = await fetch(`${url}/getAPackage/${payload}`);
+      if (!response.ok) return rejectWithValue(500);
+      const data = await response.json();
+
+      return fulfillWithValue(data);
+    } catch (err) {
+      return err;
+    }
+  }
+);

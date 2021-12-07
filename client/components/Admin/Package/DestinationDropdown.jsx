@@ -1,21 +1,28 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllDestinations } from "../../../store/actions/Destiantions/destinationsActions";
 import { useEffect } from "react";
+import styles from "../../../styles/Admin/Input.module.scss";
+import { useState } from "react";
 
 export const DestinationDropdown = ({ destination, setDestination }) => {
-  const [destinations] = useSelector((state) => state.destinations);
+  const [destinations, setDestinations] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllDestinations());
+    getDest();
   }, []);
+
+  const getDest = async () => {
+    const resp = await dispatch(getAllDestinations());
+    setDestinations(resp.payload);
+  };
 
   const getDestinationId = (e) => {
     setDestination(e.target.value);
   };
 
   return (
-    <div>
+    <div className={styles.dropdown}>
       <label htmlFor="">Destination</label>
       <select value={destination} onChange={getDestinationId}>
         <option value="" disabled>

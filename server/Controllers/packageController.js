@@ -2,6 +2,7 @@ const Package = require("../Models/Package");
 const Destination = require("../Models/TravelInfo/Destination");
 const Category = require("../Models/TravelInfo/Category");
 const Type = require("../Models/TravelInfo/Type");
+const { Query } = require("mongoose");
 /* CREATE NEW PACKAGE */
 
 exports.newPackage = async (req, res, next) => {
@@ -61,7 +62,10 @@ exports.getAllPackages = async (req, res, next) => {
 /* GET A PACKAGE BY ID */
 exports.getPackageById = async (req, res, next) => {
   try {
-    const package = await Package.findById(req.params.id);
+    const package = await Package.findById(req.params.id)
+      .populate("category")
+      .populate("type")
+      .populate("destination");
     res.json(package);
   } catch (err) {
     res.json(next(err));

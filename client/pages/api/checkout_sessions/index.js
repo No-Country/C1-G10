@@ -6,13 +6,13 @@ export default async function handler(req, res) {
     try {
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: '{{PRICE_ID}}',
-            quantity: 1,
-          },
-        ],
+        // line_items: [
+        //   {
+        //     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        //     price: '{{PRICE_ID}}',
+        //     quantity: 1,
+        //   },
+        // ],
         mode: 'payment',
         payment_method_types: ['card'],
         line_items: req?.body?.items ?? [],

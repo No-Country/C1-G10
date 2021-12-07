@@ -22,7 +22,7 @@ _As a client you can buy already established tourist packages as well as generat
 * [Nextjs](https://nextjs.org/) - Framework
 * [MongoDB](https://www.mongodb.com/) - Data base
 
-## Developers ✒️
+## Authors ✒️
 
 
 

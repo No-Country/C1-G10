@@ -56,20 +56,20 @@ const Navbar = () => {
               <>
                 {session.user.email === "travellifetouroperator@gmail.com" ? (
                   <Link href="/admin">
-                    <button className="btn btn-outline-success" type="submit">
+                    <a className="btn btn-outline-success" type="submit">
                       Admin
-                    </button>
+                    </a>
                   </Link>
                 ) : (
-                  <form className="d-flex">
-                    <Link href="/customPackage">
-                      <button className="btn btn-outline-success" type="submit">
-                        Custom Package
-                      </button>
-                    </Link>
-                  </form>
+                  <Link href="/customPackage">
+                    <a className="btn btn-outline-success" type="submit">
+                      Custom Package
+                    </a>
+                  </Link>
                 )}
-                ({session.user.name})
+                <div style={{ padding: "1rem .3rem" }}>
+                  Hi, {session.user.name.split(" ")[0]}
+                </div>
                 <button
                   className="btn btn-outline-success"
                   onClick={() => signOut()}

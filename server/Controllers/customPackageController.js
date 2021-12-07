@@ -37,7 +37,10 @@ exports.newCustomPackage = async (req, res, next) => {
 
 exports.getAllCustomPackages = async (req, res, next) => {
   try {
-    const customPackage = await CustomPackage.find({});
+    const customPackage = await CustomPackage.find({})
+      .populate("category")
+      .populate("type")
+      .populate("destination");
 
     return res.json(customPackage);
   } catch (err) {

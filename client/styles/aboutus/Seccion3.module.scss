@@ -17,6 +17,75 @@
     padding: 5px;
   }
 }
+@media screen and (max-width: 1500px) {
+  .hola {
+    p {
+      font-size: 23px;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    .container {
+      img {
+      }
+
+      a {
+        width: 200px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .hola {
+    p {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .container {
+      img {
+      }
+
+      a {
+        width: 200px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hola {
+    p {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 35px;
+    }
+    .container {
+      img {
+      }
+
+      a {
+        width: 200px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .hola {
+    p {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    .container {
+      img {
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .hola {
     background-size: cover;

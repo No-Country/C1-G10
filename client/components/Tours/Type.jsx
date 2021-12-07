@@ -15,7 +15,9 @@ export const Type = ({ setPackages }) => {
 
   const onClick = async (value) => {
     const packages = await dispatch(filterPackages(["type", value]));
-    setPackages(packages.payload);
+    packages.payload.length === 0
+      ? setPackages(null)
+      : setPackages(packages.payload);
   };
 
   return (

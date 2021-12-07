@@ -1,4 +1,4 @@
-import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 const url = "http://localhost:5002";
 
 /* GET ALL PACKAGES */
@@ -33,12 +33,56 @@ export const filterPackages = createAsyncThunk(
   }
 );
 
-/* GET ALL DESTINATIONS */
-export const getAllDestinations = createAsyncThunk(
-  "GET_DESTINATIONS",
-  async () => {
-    const response = await fetch(`${url}/getAllDestinations`);
-    const data = await response.json();
-    return data;
+export const newPackage = createAsyncThunk(
+  "NEW_PACKAGE",
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
+    try {
+      const [
+        destinationId,
+        categoryId,
+        typeId,
+        packageName,
+        description,
+        currency,
+        totalCost,
+        totalDays,
+        remainingSpots,
+      ] = payload;
+      const response = await fetch(`${url}/newPackage`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          destinationId,
+          categoryId,
+          typeId,
+          packageName,
+          description,
+          currency,
+          totalCost,
+          totalDays,
+          remainingSpots,
+        }),
+      });
+      if (!response.ok) return rejectWithValue(500);
+      const data = await response.json();
+      return fulfillWithValue(data);
+    } catch (err) {
+      return err;
+    }
+  }
+);
+
+export const getPackageById = createAsyncThunk(
+  "GET_PACKAGEID",
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
+    try {
+      const response = await fetch(`${url}/getAPackage/${payload}`);
+      if (!response.ok) return rejectWithValue(500);
+      const data = await response.json();
+
+      return fulfillWithValue(data);
+    } catch (err) {
+      return err;
+    }
   }
 );

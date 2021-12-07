@@ -1,7 +1,8 @@
 import { Destination } from "../components/Admin/Destination";
 import { Type } from "../components/Admin/Type";
 import { Category } from "../components/Admin/Category";
-import { Package } from "../components/Admin/Package";
+import { Package } from "../components/Admin/Package/Package";
+import { CustomPackage } from "../components/Admin/CustomPackage";
 import styles from "../styles/Admin/Admin.module.scss";
 
 import { getSession } from 'next-auth/client'; //for user authentication (next-auth)
@@ -18,6 +19,7 @@ export default function Admin({ user }) {
 
   return (
     <div className={styles.container}>
+      <div></div>
       <h1>Admin Panel</h1>
       <div className={styles.grid}>
         <Destination />
@@ -26,8 +28,9 @@ export default function Admin({ user }) {
       </div>
       <div className={styles.package}>
         <Package />
+        <CustomPackage />
       </div>
-    </div>
+      </div>
   );
 }
 

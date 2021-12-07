@@ -12,11 +12,9 @@ export const Day = ({ setPackages }) => {
 
   const onClick = async (value) => {
     const packages = await dispatch(filterPackages(["totalDays", value]));
-    if (packages.payload.length === 0) {
-      setPackages(null);
-      return;
-    }
-    setPackages(packages.payload);
+    packages.payload.length === 0
+      ? setPackages(null)
+      : setPackages(packages.payload);
   };
 
   return (

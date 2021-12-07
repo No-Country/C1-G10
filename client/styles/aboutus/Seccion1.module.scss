@@ -25,6 +25,72 @@
     font-family: sans-serif;
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .Seccion0conteiner {
+    h1 {
+      bottom: 0px;
+      font-size: 45px;
+    }
+  }
+  .parrafo {
+    p {
+      font-size: 22px;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .Seccion0conteiner {
+    h1 {
+      bottom: 0px;
+      font-size: 35px;
+    }
+  }
+  .parrafo {
+    p {
+      font-size: 17px;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .Seccion0conteiner {
+    h1 {
+      bottom: 0px;
+      font-size: 30px;
+    }
+  }
+  .parrafo {
+    p {
+      font-size: 15px;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .Seccion0conteiner {
+    h1 {
+      bottom: 0px;
+      font-size: 25px;
+    }
+  }
+  .parrafo {
+    p {
+      font-size: 15px;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .Seccion0conteiner {
     h1 {

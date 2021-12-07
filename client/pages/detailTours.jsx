@@ -5,8 +5,38 @@ import { Nav } from "../components/DetailsTours/Nav";
 import { Items } from "../components/DetailsTours/Items";
 import Image from "next/image";
 import styles from "../styles/detailsTours/DetailTours.module.scss";
+import { useState, useEffect } from "react";
+import { getPackageById } from "../store/actions/Packages/packagesActions";
+import { useDispatch } from "react-redux";
 
 export default function DetailTours() {
+  const [packageId, setPackageId] = useState("");
+  const [packageInfo, setPackageInfo] = useState("");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const string = window.location.href;
+    const url = new URL(string);
+    const id = url.searchParams.get("id");
+    setPackageId(id);
+  }, []);
+
+  useEffect(() => {
+    getPackage();
+  }, [packageId]);
+
+  const getPackage = async () => {
+    if (packageId) {
+      const response = await dispatch(getPackageById(packageId));
+      if (response.payload === 500) {
+        alert("Package not found");
+      }
+      setPackageInfo(response.payload);
+      console.log(response.payload);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -26,7 +56,7 @@ export default function DetailTours() {
         layout="responsive"
         src="/images/detailTour.jpg"
       />
-      <Items />
+      <Items packageInfo={packageInfo} />
       <Nav />
       <hr></hr>
       <Itinerary />

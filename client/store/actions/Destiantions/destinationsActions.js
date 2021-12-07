@@ -3,7 +3,7 @@ const url = "http://localhost:5002";
 
 export const newDestination = createAsyncThunk(
   "destination/newDestination",
-  async (payload) => {
+  async (payload, { rejectWithValue, fulfillWithValue }) => {
     try {
       let formData = new FormData();
       const [destination, images, coor] = payload;
@@ -14,8 +14,9 @@ export const newDestination = createAsyncThunk(
         method: "POST",
         body: formData,
       });
+      if (!response.ok) return rejectWithValue(500);
       const data = await response.json();
-      return data;
+      return fulfillWithValue(data);
     } catch (err) {
       return err;
     }

@@ -2,7 +2,6 @@ const Package = require("../Models/Package");
 const Destination = require("../Models/TravelInfo/Destination");
 const Category = require("../Models/TravelInfo/Category");
 const Type = require("../Models/TravelInfo/Type");
-const { Query } = require("mongoose");
 /* CREATE NEW PACKAGE */
 
 exports.newPackage = async (req, res, next) => {

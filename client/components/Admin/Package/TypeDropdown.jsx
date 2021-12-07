@@ -1,21 +1,28 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllTypes } from "../../../store/actions/Types/typesAction";
+import styles from "../../../styles/Admin/Input.module.scss";
+import { useState } from "react";
 
 export const TypeDropdown = ({ type, setType }) => {
-  const [types] = useSelector((state) => state.types);
+  const [types, setTypes] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllTypes());
+    getTypes();
   }, []);
+
+  const getTypes = async () => {
+    const response = await dispatch(getAllTypes());
+    setTypes(response.payload);
+  };
 
   const getTypeId = (e) => {
     setType(e.target.value);
   };
 
   return (
-    <div>
+    <div className={styles.dropdown}>
       <label htmlFor="">Type</label>
       <select value={type} onChange={getTypeId}>
         <option value="" disabled>

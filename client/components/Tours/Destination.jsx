@@ -1,10 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import styles from "../../styles/tours/FilterOptions.module.scss";
-import {
-  filterPackages,
-  getAllDestinations,
-} from "../../store/actions/Packages/packagesActions";
+import { filterPackages } from "../../store/actions/Packages/packagesActions";
+import { getAllDestinations } from "../../store/actions/Destiantions/destinationsActions";
 
 export const Destination = ({ setPackages }) => {
   const dispatch = useDispatch();
@@ -17,7 +15,9 @@ export const Destination = ({ setPackages }) => {
 
   const onClick = async (value) => {
     const packages = await dispatch(filterPackages(["destination", value]));
-    setPackages(packages.payload);
+    packages.payload.length === 0
+      ? setPackages(null)
+      : setPackages(packages.payload);
   };
 
   return (

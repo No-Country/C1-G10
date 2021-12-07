@@ -5,12 +5,12 @@ import { useEffect } from "react";
 import { getAllDetails } from "../../store/actions/DetailTours/detailActions"
 // import { get } from "immer/dist/internal";
 
-export default function Images() {
-    const {id} = useParams();
+export default function Image() {
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllDetails(id))
+        dispatch(getAllDetails())
     }, [])
 
     const getImage = useSelector(state => state.details)
@@ -20,7 +20,6 @@ export default function Images() {
             <Image
             // width="700"
             // height="300"
-            layout="responsive"
             src='/getImage.images'
             layout = 'fill'
             />

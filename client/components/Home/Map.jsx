@@ -8,6 +8,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import styles from "../../styles/Home/Map.module.scss";
+import Image from "next/image";
 
 const Map = ({ setMap, pos, destination }) => {
   // SET THE MARKER ICON
@@ -24,7 +25,7 @@ const Map = ({ setMap, pos, destination }) => {
         <Popup>
           <div>
             <h1>{destination}</h1>
-            <img src="#" alt="" />
+            <Image src="#" alt="" />
           </div>
         </Popup>
       </Marker>

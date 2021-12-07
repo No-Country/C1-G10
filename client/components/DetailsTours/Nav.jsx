@@ -6,17 +6,16 @@ import { Itinerary } from './Itinerary';
 
 export const NavBar = () => {
   return (
+
     <div >
      
-      <nav className={styles.grid}>
-        <a class="navbar-brand" href="#">
-         
-   
-         <section >
+      <nav>
+
+        <section>
+
           <nav className="nav nav-pills flex-column">
             <a className={styles.text} href="#Overview">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="currentColor"
@@ -126,7 +125,7 @@ export const NavBar = () => {
             </nav>
           </nav>
         </section>
-        </a>
+        
         <section>
           <div
             className={styles.order}
@@ -145,7 +144,7 @@ export const NavBar = () => {
             <h5 className={styles.options} id="Itinerary day-by-day">
               <Itinerary/>
             </h5>
-            <p>...</p>
+
             <h4 className={styles.options} id="What's included?">
               What's included?
             </h4>
@@ -164,5 +163,6 @@ export const NavBar = () => {
         </section>
       </nav>
     </div>
+
   );
 };

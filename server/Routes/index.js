@@ -22,6 +22,10 @@ const post_type = require("./Type/post_type");
 const get_type = require("./Type/get_type");
 const del_type = require("./Type/del_type");
 
+//CUSTOM PACKAGE ROUTES
+const post_customPackage = require("./CustomPackage/post_customPackage");
+const get_customPackage = require("./CustomPackage/get_customPackage");
+
 //***********************************************************//
 
 //POST
@@ -29,12 +33,14 @@ router.use(post_package);
 router.use(post_destination);
 router.use(post_category);
 router.use(post_type);
+router.use(post_customPackage);
 
 //GET
 router.use(get_package);
 router.use(get_type);
 router.use(get_category);
 router.use(get_destination);
+router.use(get_customPackage);
 
 //DELETE
 router.use(del_package);

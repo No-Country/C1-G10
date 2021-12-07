@@ -14,4 +14,5 @@ const PackageSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category" },
   type: { type: Schema.Types.ObjectId, ref: "Type" },
 });
+
 module.exports = mongoose.model("Package", PackageSchema);

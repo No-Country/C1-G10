@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 const devUrl = "http://localhost:5002";
 const liveUrl = "https://tour-page-nc.herokuapp.com";
 
@@ -33,3 +34,4 @@ export const getAllCustomPackages = createAsyncThunk(
     }
   }
 );
+

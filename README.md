@@ -9,7 +9,7 @@ _As a client you can buy already established tourist packages as well as generat
 
 
 ## Deployment 📦
-* (http://www.youtube.com) 
+* [Live Demo](https://toursg10.vercel.app/) 
 
 
 
@@ -26,12 +26,12 @@ _As a client you can buy already established tourist packages as well as generat
 
 
 
-* **Andrea Solari** - *Frontend* - (http://github.com/andrea2326)
-* **Maximiliano Ruano** - *Frontend* - (http://github.com/maxi-ruano)
-* **Damian Spagnuolo** - *Frontend* - (https://github.com/Spardutti)
-* **Jorge Barreto** - *Backend* - (http://github.com/aqwsxzzz)
-* **Alex Mendez** - *Backend* - (https://github.com/alexmarinmendez)
-* **Jordan Gonzales** - *Backend* - (https://github.com/jojo-rdan)
+* **Andrea Solari** - *Frontend* - [Github](http://github.com/andrea2326)
+* **Maximiliano Ruano** - *Frontend* - [Github](http://github.com/maxi-ruano)
+* **Damian Spagnuolo** - *Frontend* - [Github](https://github.com/Spardutti)
+* **Jorge Barreto** - *Backend* - [Github](http://github.com/aqwsxzzz)
+* **Alex Mendez** - *Backend* - [Github](https://github.com/alexmarinmendez)
+* **Jordan Gonzales** - *Backend* - [Github](https://github.com/jojo-rdan)
 
 
 

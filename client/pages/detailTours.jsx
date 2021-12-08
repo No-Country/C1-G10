@@ -6,6 +6,7 @@ import { getPackageById } from "../store/actions/Packages/packagesActions";
 import { useDispatch } from "react-redux";
 import { TourInfo } from "../components/DetailsTours/TourInfo";
 import styles from "../styles/detailsTours/TourInfo.module.scss";
+import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 
 export default function DetailTours() {
   const [packageId, setPackageId] = useState("");
@@ -32,13 +33,12 @@ export default function DetailTours() {
         alert("Package not found");
       }
       setPackageInfo(response.payload);
-      console.log(response.payload);
       setLoading(false);
     }
   };
 
   return loading ? (
-    <p>Loading</p>
+    <LoadingScreen />
   ) : (
     <div>
       <Head>

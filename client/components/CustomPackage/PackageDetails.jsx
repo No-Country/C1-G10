@@ -4,8 +4,6 @@ import Router from "next/router";
 import { signOut } from "next-auth/client"; //for user authentication (next-auth)
 import { postCustomPackage } from "../../store/actions/customPackage/customPackagesActions";
 import { useDispatch } from "react-redux";
-
-import { postCustomPackage } from "../../store/actions/customPackage/customPackagesActions";
 import { useDispatch } from "react-redux";
 
 export const PackageDetails = ({

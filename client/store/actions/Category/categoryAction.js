@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const url = "http://localhost:5002";
+const devUrl = "http://localhost:5002";
+const liveUrl = "https://tour-page-nc.herokuapp.com";
 
 export const getAllCategories = createAsyncThunk("GET_CATEGORY", async () => {
   try {
-    const response = await fetch(`${url}/getAllCategories`);
+    const response = await fetch(`${liveUrl}/getAllCategories`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -17,7 +18,7 @@ export const newCategory = createAsyncThunk(
   async (payload, { rejectWithValue, fulfillWithValue }) => {
     try {
       const [categoryName] = payload;
-      const response = await fetch(`${url}/newcategoryModel`, {
+      const response = await fetch(`${liveUrl}/newcategoryModel`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

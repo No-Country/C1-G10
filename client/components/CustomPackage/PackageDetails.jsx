@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/CustomPackage/DetailsTable.module.scss";
 import Router from "next/router";
-
-import { signOut } from 'next-auth/client';  //for user authentication (next-auth)
-
+import { signOut } from "next-auth/client"; //for user authentication (next-auth)
 import { postCustomPackage } from "../../store/actions/customPackage/customPackagesActions";
 import { useDispatch } from "react-redux";
 
@@ -13,10 +11,9 @@ export const PackageDetails = ({
   type,
   day,
   category,
-  price,
   date,
   resetState,
-  user
+  user,
 }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -25,14 +22,14 @@ export const PackageDetails = ({
   const contactUs = () => {
     const _data = {
       clientName: user.name,
-      clientEmail: user.email, 
+      clientEmail: user.email,
       destination,
       type,
       category,
       membersQuantity: member,
       totalDays: day,
-      date, 
-    }
+      date,
+    };
     dispatch(postCustomPackage(_data));
     setLoading(!loading);
     setTimeout(() => {
@@ -45,16 +42,19 @@ export const PackageDetails = ({
   const Message = () => {
     return (
       <div className={styles.loading}>
-        <h5>Thank you.</h5>
+        <h5>Thank you {user.name.split(" ")[0]},</h5>
         <p>
           We hope your experience was awesome and we can’t wait to see you again
           soon.
+        </p>
+        <p>
+          We will be contacting you soon via <b>{user.email}.</b>
         </p>
       </div>
     );
   };
 
-  return loading ? (
+  return !loading ? (
     <Message />
   ) : (
     <div className={styles.container}>
@@ -94,25 +94,11 @@ export const PackageDetails = ({
         </tbody>
       </table>
 
-            <p>You are logged as: {user.name}</p>
-            <div>
-              <p>Email: {user.email}</p>
-              <br />
-              {user.image && (
-                <span>
-                  <img src={user.image} alt={user.name} />
-                </span>
-              )}
-            </div>
-            <br />
-            <br />
-            <button onClick={() => signOut()}>
-              Sign Out
-            </button>
-            <p onClick={contactUs} className={styles.contact}>Contact us</p> 
-
+      <br />
+      <br />
+      <p onClick={contactUs} className={styles.contact}>
+        Contact us
+      </p>
     </div>
   );
 };
-
-

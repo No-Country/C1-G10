@@ -1,9 +1,21 @@
 import Head from "next/head";
 import { Cover } from "../components/Home/Cover";
 import { MapContainer } from "../components/Home/MapContainer";
+import { useState, useEffect } from "react";
+import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 
 export default function Home() {
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  return loading ? (
+    <LoadingScreen />
+  ) : (
     <div>
       <Head>
         <title>Across the globe</title>

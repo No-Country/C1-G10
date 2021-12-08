@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../../styles/tours/TourCards.module.scss";
 import router from "next/router";
+import Spinner from "../Styled/Spinner";
 
 export const TourCards = ({ packages }) => {
   const goToPackage = (id) => {
@@ -46,8 +47,10 @@ export const TourCards = ({ packages }) => {
             </div>
           );
         })
+      ) : packages === null ? (
+        <div>No packages found </div>
       ) : (
-        <div>Nothing to see here </div>
+        <Spinner />
       )}
     </div>
   );

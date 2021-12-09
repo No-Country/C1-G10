@@ -1,6 +1,7 @@
 import styles from "../../styles/detailsTours/Items.module.scss";
 
 export const Items = ({ packageInfo }) => {
+  console.log(packageInfo);
   return packageInfo ? (
     <div>
       <section className={styles.container}>

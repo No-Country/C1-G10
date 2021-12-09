@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Cover } from "../components/Home/Cover";
 import { MapContainer } from "../components/Home/MapContainer";
+<<<<<<< HEAD
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -29,6 +30,23 @@ export default function Home() {
   }, []);
 
   return (
+=======
+import { useState, useEffect } from "react";
+import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
+
+export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  return loading ? (
+    <LoadingScreen />
+  ) : (
+>>>>>>> 93c17f23685c8eb169b8cd47b847775beba00fb9
     <div>
       <Head>
         <title>Across the globe</title>

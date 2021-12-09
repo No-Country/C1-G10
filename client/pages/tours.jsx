@@ -6,11 +6,13 @@ import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllPackages } from "../store/actions/Packages/packagesActions";
 import Head from "next/head";
+import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 
 export default function Tours() {
   const dispatch = useDispatch();
   const [packagesStore] = useSelector((state) => state.packages);
   const [packages, setPackages] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(getAllPackages());
@@ -20,7 +22,13 @@ export default function Tours() {
     setPackages(packagesStore);
   }, [packagesStore]);
 
-  return (
+  useEffect(() => {
+    packages && setLoading(false);
+  }, [packages]);
+
+  return loading ? (
+    <LoadingScreen />
+  ) : (
     <div>
       <Head>
         <title>Our Tours</title>
@@ -34,12 +42,8 @@ export default function Tours() {
         ></link>
       </Head>
       <div className={styles.imageContainer}>
-        <Image
-          width={1920}
-          height={800}
-          layout="responsive"
-          src="/images/snowy-mountain.jpg"
-        />
+        <div></div>
+
         <h2>Travels</h2>
       </div>
       <div className={styles.intro}>
@@ -61,11 +65,6 @@ export default function Tours() {
           <TourCards packages={packages} />
         </div>
       </div>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossOrigin="anonymous"
-      ></script>
     </div>
   );
 }

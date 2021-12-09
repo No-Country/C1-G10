@@ -27,8 +27,8 @@ const Seccion0 = () => (
         <br></br>
         -¿What are the values of the community?<br></br>
         No Country works under the following pillars: Collaboration, Empathy,
-        Cordiality, Commitment and Proactivity. "Human values above
-        technologies."
+        Cordiality, Commitment and Proactivity. &quot;Human values above
+        technologies.&quot;
       </p>
     </div>
   </div>

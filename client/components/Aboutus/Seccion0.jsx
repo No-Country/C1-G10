@@ -11,24 +11,24 @@ const Seccion0 = () => (
         src="/images/ppp.jpg"
       />
 
-      <h1 className="textosobreimagen">SOBRE NOSOTROS</h1>
+      <h1 className="textosobreimagen">ABOUT US</h1>
     </div>
     <div className={styles.parrafo}>
       <p>
-        -¿Quiénes somos?<br></br>
-        Somos una comunidad de juniors devs, donde emulamos entornos de la vida
-        laboral para acelerarnos profesionalmente, con enfoque principalmente en
-        la parte humana y a su vez en la parte técnica.<br></br>
+        -Who we are ??<br></br>
+        We are a community of juniors devs, where we emulate life environments
+        work to accelerate professionally, focusing mainly on the human part and
+        in turn the technical part.<br></br>
         <br></br>
-        -¿Cuál es nuestra misión? <br></br>
-        Ayudar a miles de desarrolladores principiantes a insertarse rápido en
-        el mercado laboral. Potenciar las habilidades de los desarrolladores del
-        futuro creando la mejor cultura para crecer.<br></br>
+        -¿What is our mission? <br></br>
+        Help thousands of novice developers get on board fast the labor market.
+        Enhance the skills of the developers of the future creating the best
+        culture to grow.<br></br>
         <br></br>
-        -¿Cuáles son los valores de la comunidad?<br></br>
-        No Country trabaja bajo los siguientes pilares: Colaboración, Empatía,
-        Cordialidad, Compromiso y Proactividad. “Valores humanos por sobre
-        tecnologías.”
+        -¿What are the values of the community?<br></br>
+        No Country works under the following pillars: Collaboration, Empathy,
+        Cordiality, Commitment and Proactivity. "Human values above
+        technologies."
       </p>
     </div>
   </div>

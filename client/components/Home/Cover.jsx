@@ -6,7 +6,7 @@ export const Cover = () => {
       <video autoPlay loop muted>
         <source src="/videos/paisaje.mp4" type="video/mp4" />
       </video>
-      <h1>Titulo Interesante</h1>
+      <h1>Around the world</h1>
     </div>
   );
 };

@@ -4,7 +4,8 @@ const Seccion3 = () => (
   <div className={styles.hola}>
     <h1>BACK END</h1>
     <p>
-      Encargados de implementar la interacción entre el usuario y el sitio web
+      Responsible for implementing the interaction between the user and the
+      website
     </p>
     <div className={styles.container}>
       <a href="http://linkedin.com/in/">

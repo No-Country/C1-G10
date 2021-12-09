@@ -3,7 +3,7 @@ import styles from "../../styles/aboutus/Seccion2.module.scss";
 const Seccion2 = () => (
   <div className={styles.hola}>
     <h1>FRONT END</h1>
-    <p>Responsables de diseñar y programar la interfaz de usuario</p>
+    <p>Responsible for designing and programming the user interface</p>
     <div className={styles.container}>
       <a href="https://www.linkedin.com/in/andreasolariroa/">
         <img src="/images/andrea.jpg" />

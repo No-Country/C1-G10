@@ -2,35 +2,20 @@
 
 .container {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 30px;
-  padding: 10px;
-  border-bottom: 5px solid #f7f7f7;
-  padding: 20px 100px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  width: 200%;
-  max-width: 1300px;
-  margin: auto;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  justify-content: space-around;
+  padding: 1rem;
 }
 
 @media (max-width: 1298.98px) {
   .container {
     font-size: 20px;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    font-size: 10px;
   }
 }

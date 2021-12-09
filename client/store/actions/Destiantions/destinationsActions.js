@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const url = "http://localhost:5002";
+const devUrl = "http://localhost:5002";
+const liveUrl = "https://tour-page-nc.herokuapp.com";
 
 export const newDestination = createAsyncThunk(
   "destination/newDestination",
@@ -10,7 +11,7 @@ export const newDestination = createAsyncThunk(
       formData.append("destinationName", destination);
       formData.append("image", images);
       formData.append("coordinates", coor);
-      const response = await fetch(`${url}/newDestinationModel`, {
+      const response = await fetch(`${liveUrl}/newDestinationModel`, {
         method: "POST",
         body: formData,
       });
@@ -27,7 +28,7 @@ export const newDestination = createAsyncThunk(
 export const getAllDestinations = createAsyncThunk(
   "GET_DESTINATIONS",
   async () => {
-    const response = await fetch(`${url}/getAllDestinations`);
+    const response = await fetch(`${liveUrl}/getAllDestinations`);
     const data = await response.json();
     return data;
   }

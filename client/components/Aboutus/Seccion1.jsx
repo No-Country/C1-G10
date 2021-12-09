@@ -10,22 +10,20 @@ const Seccion1 = () => (
     <div className={styles.parrafo}>
       <img src="/images/nc.jpg" className="img-fluid" />
       <p>
-        En 2008, ya éramos ávidos viajeros. Quedamos absolutamente enganchados
-        con los paisajes dramáticos de Perú, las antiguas civilizaciones, la
-        abundante vida silvestre y las culturas enormemente variadas y coloridas
-        de nuestra gente. Un día, estábamos siguiendo un segmento desconocido
-        del Camino Inca en Nor Yauyos Cochas - en los Andes de Lima - cuando
-        pensamos por primera vez en Peruvian Soul. La alegría pura, la sensación
-        de conexión y la calidez que sentimos a lo largo de este viaje nos
-        convencieron. Si íbamos a compartir el Perú con otros, necesitábamos
-        mostrarles nuestro espíritu, nuestra alma peruana. No hemos parado desde
-        ese día. Llevamos más de 12 años viajando por los diferentes rincones
-        del Perú, conectando, compartiendo y aprendiendo. Hemos construido
-        relaciones duraderas con guías locales, agricultores, pastores,
-        biólogos, arqueólogos y muchos otros que comparten nuestra pasión. Hemos
-        abierto innumerables rutas nuevas y encontrado nuevas formas de
-        experimentar sitios convencionales, pero nuestro propósito siempre ha
-        sido el mismo, mostrar a nuestros viajeros el alma del Perú.
+        In 2019, we were already avid entrepreneurs. We are absolutely hooked on
+        the IT world, generate applications and webs through codes, the ability
+        to do what you like from anywhere of the world, interact with people
+        from different countries and power carry out team projects. We felt that
+        connection and we decided to make our own way, convinced that No Country
+        is something that deserves to be shared with the world, since many of us
+        travel the same road and what we want to achieve is that we travel it
+        together and thus be able to achieve fulfill objectives, goals and
+        dreams in a more professional way, where learning is a constant that
+        will accompany us throughout the process and enthusiasm will grow more
+        and more for the achievements that we will be complying. This is not a
+        group, it is a community and any person is welcome, all were once
+        juniors and juniors great things are born, that is why for us they are
+        the priority and all together we will make NO COUNTRY grow.
       </p>
     </div>
   </div>

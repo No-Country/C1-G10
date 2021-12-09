@@ -36,11 +36,11 @@ export default function Admin({ user }) {
         <Type />
         <Category />
       </div>
-      <div className={styles.package}>
+      <div className={styles.grid}>
         <Package />
         <CustomPackage />
       </div>
-      </div>
+    </div>
   );
 }
 

@@ -1,22 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Corinthia:wght@700&family=Dancing+Script:wght@700&display=swap");
 .cover {
   width: 100vw;
   position: relative;
-
   video {
     width: 100%;
   }
 
-  h1 {
+  .left {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 8rem;
-    width: 100%;
+    color: #49500f;
+    left: 5%;
+    top: 17%;
+    letter-spacing: 0.7rem;
+    font-family: Dancing Script;
+    font-size: 4rem;
+    -webkit-text-stroke: 0.2px black;
+  }
+
+  .right {
+    position: absolute;
+    color: black;
+    right: 13%;
+    bottom: 30%;
     text-align: center;
-    color: white;
-    text-transform: uppercase;
     letter-spacing: 1rem;
+    font-size: 6rem;
+
+    span {
+      color: white;
+      font-family: Dancing Script;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #49500f,
+        0 0 20px #49500f, 0 0 25px #49500f, 0 0 30px #49500f, 0 0 35px #49500f,
+        0 0 20px #49500f, 0 0 25px #49500f, 0 0 30px #49500f, 0 0 35px #49500f;
+    }
   }
 }
 
@@ -24,6 +40,13 @@
   .cover {
     h1 {
       font-size: 5rem;
+    }
+
+    .left {
+      font-size: 3rem;
+    }
+    .right {
+      font-size: 4rem;
     }
   }
 }
@@ -33,12 +56,36 @@
     h1 {
       font-size: 2rem;
     }
+    .left {
+      font-size: 1.7rem;
+    }
+    .right {
+      font-size: 2.6rem;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .cover {
+    .left {
+      font-size: 1.3rem;
+    }
+    .right {
+      font-size: 2rem;
+    }
   }
 }
 
 @media (max-width: 575.98px) {
   .cover {
     h1 {
+      font-size: 1rem;
+    }
+
+    .left {
+      font-size: 0.9rem;
+    }
+    .right {
       font-size: 1rem;
     }
   }

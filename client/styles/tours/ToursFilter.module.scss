@@ -37,6 +37,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
+    margin-bottom: 1rem;
   }
 }
 
@@ -116,7 +117,7 @@
     }
 
     .filters {
-      padding: 1 0.8rem;
+      padding: 0.6rem 0.8rem;
     }
   }
   .reset {
@@ -136,8 +137,13 @@
       font-size: 0.6rem;
     }
 
+    .filters {
+      padding: 0.5rem;
+    }
+
     .reset {
-      font-size: 0.5rem;
+      font-size: 0.3rem;
+      margin-bottom: 0.5rem;
     }
   }
 }

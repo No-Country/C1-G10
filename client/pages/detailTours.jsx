@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { Items } from "../components/DetailsTours/Items";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { getPackageById } from "../store/actions/Packages/packagesActions";
 import { useDispatch } from "react-redux";
 import { TourInfo } from "../components/DetailsTours/TourInfo";
 import styles from "../styles/detailsTours/TourInfo.module.scss";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
+import { checkout } from "../store/actions/Checkout/checkoutAction";
 
 export default function DetailTours() {
   const [packageId, setPackageId] = useState("");
@@ -37,6 +37,10 @@ export default function DetailTours() {
     }
   };
 
+  const toCheckout = () => {
+    dispatch(checkout(packageInfo));
+  };
+
   return loading ? (
     <LoadingScreen />
   ) : (
@@ -60,6 +64,7 @@ export default function DetailTours() {
       </div>
       <Items packageInfo={packageInfo} />
       <hr></hr>
+      <button onClick={toCheckout}>Buy</button>
       <TourInfo packageInfo={packageInfo} />
     </div>
   );

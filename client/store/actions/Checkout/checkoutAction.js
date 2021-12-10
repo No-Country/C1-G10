@@ -5,7 +5,7 @@ const devUrl = "http://localhost:5002";
 const liveUrl = "https://tour-page-nc.herokuapp.com";
 
 const key = `${process.env.STRIPE_KEY}`;
-const stripePromise = loadStripe(key);
+const stripePromise = loadStripe(`${process.env.STRIPE_KEY}`);
 
 export const getAllCategories = createAsyncThunk("GET_CATEGORY", async () => {
   try {
@@ -22,12 +22,13 @@ export const checkout = createAsyncThunk("CHECKOUT", async (tour) => {
   try {
     const response = await fetch(`${devUrl}/checkout`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         package: tour,
       }),
     });
     const data = await response.json();
+    console.log(data);
     const result = await stripe.redirectToCheckout({
       sessionId: data,
     });

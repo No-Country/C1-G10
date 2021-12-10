@@ -10,17 +10,20 @@ import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 
 export default function Tours() {
   const dispatch = useDispatch();
-  const [packagesStore] = useSelector((state) => state.packages);
   const [packages, setPackages] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getAllPackages());
+    getPackages();
   }, []);
 
-  useEffect(() => {
-    setPackages(packagesStore);
-  }, [packagesStore]);
+  const getPackages = async () => {
+    const getPackages = await dispatch(getAllPackages());
+    if (getPackages) {
+      setPackages(getPackages.payload);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     packages && setLoading(false);

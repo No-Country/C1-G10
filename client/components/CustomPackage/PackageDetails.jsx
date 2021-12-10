@@ -55,7 +55,7 @@ export const PackageDetails = ({
     );
   };
 
-  return !loading ? (
+  return loading ? (
     <Message />
   ) : (
     <div className={styles.container}>

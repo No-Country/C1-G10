@@ -33,7 +33,7 @@ const Product = props => {
     }
 
     setAdding(false);
-    toast.success(`${qty} ${props.packageName} added`, {
+    toast.success(`${qty} ${props.name} added`, {
       id: toastId.current,
     });
     setQty(1);
@@ -49,15 +49,15 @@ const Product = props => {
   ) : (
     <>
       <Head>
-        <title>{props.packageName} | AlterClass</title>
+        <title>{props.name} | AlterClass</title>
       </Head>
       <div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-12">
           {/* Product's image */}
           <div className="relative w-72 h-72 sm:w-96 sm:h-96">
             <Image
-              src={props.images}
-              alt={props.packageName}
+              src={props.image}
+              alt={props.name}
               layout="fill"
               objectFit="contain"
             />
@@ -65,7 +65,7 @@ const Product = props => {
 
           {/* Product's details */}
           <div className="flex-1 max-w-md border border-opacity-50 rounded-md shadow-lg p-6">
-            <h2 className="text-3xl font-semibold">{props.packageName}</h2>
+            <h2 className="text-3xl font-semibold">{props.name}</h2>
             <p>
               <span className="text-gray-500">Availability:</span>{' '}
               <span className="font-semibold">In stock</span>
@@ -75,7 +75,7 @@ const Product = props => {
             <div className="mt-8 border-t pt-4">
               <p className="text-gray-500">Price:</p>
               <p className="text-xl font-semibold">
-                {formatCurrency(props.totalCost)}
+                {formatCurrency(props.price)}
               </p>
             </div>
 

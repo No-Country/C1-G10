@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 import { signIn, signOut, useSession } from "next-auth/client"; //for user authentication (next-auth)
 
 const Navbar = () => {
@@ -26,6 +27,7 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
+ 
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -48,6 +50,13 @@ const Navbar = () => {
                 <Link href="/aboutus">
                   <a className="nav-link active" aria-current="page">
                     About us
+                  </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/checkout">
+                  <a className="nav-link active" aria-current="page">
+                    Checkout
                   </a>
                 </Link>
               </li>

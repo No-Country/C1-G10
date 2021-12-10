@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-import { useShoppingCart } from '@/hooks/use-shopping-cart';
+import { useShoppingCart } from '../../hooks/use-shopping-cart';
 import axios from 'axios';
-import { formatCurrency } from '@/lib/utils';
-import getStripe from '@/lib/get-stripe';
+import { formatCurrency } from '../../lib/utils';
+import getStripe from '../../lib/get-stripe';
 import {
   XCircleIcon,
   XIcon,
@@ -37,7 +37,7 @@ const Cart = () => {
   return (
     <>
       <Head>
-        <title>My Shopping Cart | AlterClass</title>
+        <title>My Shopping Cart | Package</title>
       </Head>
       <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
         {cartCount > 0 ? (
@@ -59,7 +59,7 @@ const Cart = () => {
               Your shopping cart is empty.
             </h2>
             <p className="mt-1 text-xl">
-              Check out our awesome plants{' '}
+              Check out our awesome package{' '}
               <Link href="/">
                 <a className="text-red-500 underline">here!</a>
               </Link>

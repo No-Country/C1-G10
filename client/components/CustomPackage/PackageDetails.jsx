@@ -5,7 +5,6 @@ import { signOut } from "next-auth/client"; //for user authentication (next-auth
 import { postCustomPackage } from "../../store/actions/customPackage/customPackagesActions";
 import { useDispatch } from "react-redux";
 
-
 export const PackageDetails = ({
   destination,
   member,
@@ -23,14 +22,14 @@ export const PackageDetails = ({
   const contactUs = () => {
     const _data = {
       clientName: user.name,
-      clientEmail: user.email, 
+      clientEmail: user.email,
       destination,
       type,
       category,
       membersQuantity: member,
       totalDays: day,
-      date, 
-    }
+      date,
+    };
     dispatch(postCustomPackage(_data));
     setLoading(!loading);
     setTimeout(() => {

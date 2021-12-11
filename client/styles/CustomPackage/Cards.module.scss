@@ -53,3 +53,15 @@
     transform: scale(1.1);
   }
 }
+
+@media (max-width: 575.98px) {
+  .container {
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  .active {
+    height: 4rem;
+    font-size: 1rem;
+  }
+}

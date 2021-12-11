@@ -16,9 +16,6 @@ export const Cover = () => {
       <h1 className={`${styles.left} animate__animated animate__backInRight`}>
         Let Your Next Adventure...
       </h1>
-      {/*  <h1 className={`${styles.center} animate__animated animate__zoomIn`}>
-        Next Adventure...
-      </h1> */}
       <h1 className={`${styles.right} animate__animated animate__backInLeft`}>
         <span>Be Perfect</span>
       </h1>

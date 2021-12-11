@@ -26,6 +26,9 @@ const del_type = require("./Type/del_type");
 const post_customPackage = require("./CustomPackage/post_customPackage");
 const get_customPackage = require("./CustomPackage/get_customPackage");
 
+//CHECKOUT ROUTES
+const post_checkout = require("./Checkout/post_checkout");
+
 //***********************************************************//
 
 //POST
@@ -34,6 +37,7 @@ router.use(post_destination);
 router.use(post_category);
 router.use(post_type);
 router.use(post_customPackage);
+router.use(post_checkout);
 
 //GET
 router.use(get_package);

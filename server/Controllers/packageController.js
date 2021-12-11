@@ -63,9 +63,9 @@ exports.getAllPackages = async (req, res, next) => {
 exports.getPackageById = async (req, res, next) => {
   try {
     const package = await Package.findById(req.params.id)
-      .populate("category")
       .populate("type")
-      .populate("destination");
+      .populate("destination")
+      .populate("category");
     res.json(package);
   } catch (err) {
     res.json(next(err));

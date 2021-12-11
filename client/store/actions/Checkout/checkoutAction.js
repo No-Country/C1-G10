@@ -17,14 +17,16 @@ export const getAllCategories = createAsyncThunk("GET_CATEGORY", async () => {
   }
 });
 
-export const checkout = createAsyncThunk("CHECKOUT", async (tour) => {
+export const checkout = createAsyncThunk("CHECKOUT", async (payload) => {
   const stripe = await stripePromise;
+  const [tour, quantity] = payload;
   try {
     const response = await fetch(`${devUrl}/checkout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         package: tour,
+        quantity,
       }),
     });
     const data = await response.json();

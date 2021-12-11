@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { TourInfo } from "../components/DetailsTours/TourInfo";
 import styles from "../styles/detailsTours/TourInfo.module.scss";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
-import { checkout } from "../store/actions/Checkout/checkoutAction";
+import { Checkout } from "../components/DetailsTours/Checkout";
 
 export default function DetailTours() {
   const [packageId, setPackageId] = useState("");
@@ -16,8 +16,7 @@ export default function DetailTours() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const string = window.location.href;
-    const url = new URL(string);
+    const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
     setPackageId(id);
   }, []);
@@ -35,10 +34,6 @@ export default function DetailTours() {
       setPackageInfo(response.payload);
       setLoading(false);
     }
-  };
-
-  const toCheckout = () => {
-    dispatch(checkout(packageInfo));
   };
 
   return loading ? (
@@ -64,7 +59,7 @@ export default function DetailTours() {
       </div>
       <Items packageInfo={packageInfo} />
       <hr></hr>
-      <button onClick={toCheckout}>Buy</button>
+      <Checkout packageInfo={packageInfo} />
       <TourInfo packageInfo={packageInfo} />
     </div>
   );

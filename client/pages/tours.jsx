@@ -2,8 +2,7 @@ import { TourCards } from "../components/Tours/TourCards";
 import { FilterContainer } from "../components/Tours/FilterContainer";
 import styles from "../styles/tours/ToursInformation.module.scss";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllPackages } from "../store/actions/Packages/packagesActions";
 import Head from "next/head";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
@@ -15,6 +14,12 @@ export default function Tours() {
 
   useEffect(() => {
     getPackages();
+  }, []);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const canceled = url.searchParams.get("canceled");
+    if (canceled) alert("Something went wrong with your payment");
   }, []);
 
   const getPackages = async () => {

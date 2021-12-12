@@ -31,7 +31,7 @@ _As a client you can buy already established tourist packages as well as generat
 * **Damian Spagnuolo** - *Frontend* - [Github](https://github.com/Spardutti)
 * **Jorge Barreto** - *Backend* - [Github](http://github.com/aqwsxzzz)
 * **Alex Mendez** - *Backend* - [Github](https://github.com/alexmarinmendez)
-* **Jordan Gonzales** - *Backend* - [Github](https://github.com/jojo-rdan)
+
 
 
 

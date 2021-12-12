@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const cors = require("cors");
 const routes = require("./Routes/index");
 
 /* MONGODB CONNECTION */
@@ -14,8 +15,6 @@ const db = mongoose.connection;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 db.on("error", console.error.bind(console, "MongoDB connection error"));
-
-const cors = require("cors");
 
 /* NODEMAILER */
 /* const nodemailer = require("nodemailer");

@@ -22,7 +22,7 @@ exports.createCheckoutSession = async (req, res) => {
     mode: "payment",
     /* success_url: `http://localhost:3000/success?success=true`,
     cancel_url: `http://localhost:3000/tours?canceled=true`, */
-    succes_url: "https://toursg10.vercel.app/success?success=true",
+    success_url: "https://toursg10.vercel.app/success?success=true",
     cancel_url: "https://toursg10.vercel.app/tours?canceled=true",
   });
 

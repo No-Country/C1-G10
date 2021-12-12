@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { Items } from "../components/DetailsTours/Items";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { getPackageById } from "../store/actions/Packages/packagesActions";
 import { useDispatch } from "react-redux";
 import { TourInfo } from "../components/DetailsTours/TourInfo";
 import styles from "../styles/detailsTours/TourInfo.module.scss";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
+import { Checkout } from "../components/DetailsTours/Checkout";
 
 export default function DetailTours() {
   const [packageId, setPackageId] = useState("");
@@ -16,8 +16,7 @@ export default function DetailTours() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const string = window.location.href;
-    const url = new URL(string);
+    const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
     setPackageId(id);
   }, []);
@@ -60,6 +59,7 @@ export default function DetailTours() {
       </div>
       <Items packageInfo={packageInfo} />
       <hr></hr>
+      <Checkout packageInfo={packageInfo} />
       <TourInfo packageInfo={packageInfo} />
     </div>
   );
